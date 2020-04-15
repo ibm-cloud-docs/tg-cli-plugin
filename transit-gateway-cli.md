@@ -33,7 +33,7 @@ The {{site.data.keyword.cloud}} Transit Gateway command-line interface (CLI) pro
 ## Before you begin
 {: #cli-ref-prereqs}
 
-Follow these instructions to use the Transit Gateway Command Line Interface, which is implemented as an {{site.data.keyword.cloud_notm}} CLI plug-in. 
+Follow these instructions to use the Transit Gateway Command Line Interface, which is implemented as an {{site.data.keyword.cloud_notm}} CLI plug-in.
 
 1. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-install-ibmcloud-cli){: external}.
 1. Install the `tg-cli/tg` CLI plug-in to the {{site.data.keyword.cloud_notm}} CLI.
@@ -68,7 +68,7 @@ ibmcloud tg -h|--help
 
 ---
 
-## Location
+## Locations
 
 This section provides information about CLI commands for location functionality.
 
@@ -84,12 +84,12 @@ ibmcloud tg locations|locs [--output json] [-h, --help]
 #### Command options
 {: #list-locations-options}
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format. 
- 
-- **--help | -h**: Optional: Get help on this command. 
+- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+
+- **--help | -h**: Optional: Get help on this command.
 
 ---
- 
+
 ### ibmcloud tg location  
 {: #location-detail}
 
@@ -102,13 +102,13 @@ ibmcloud tg location|loc NAME [--output json] [-h, --help]
 #### Command options
 {: #location-detail-options}
 
-- **NAME**: Name of the location you want details for. 
+- **NAME**: Name of the location you want details for.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format. 
+- **--output json**: Optional: Specify if you want the output displayed in JSON format.
 
 - **--help | -h**: Optional: Get help on this command.
-   
-#### Examples
+
+#### Example
 {: #location-detail-examples}
 
 Request details for location `us-south`.
@@ -119,7 +119,7 @@ ibmcloud tg location us-south
 {: pre}
 ---
 
-## Gateway
+## Gateways
 
 This section provides information about CLI commands for gateway functionality.
 
@@ -131,14 +131,14 @@ List transit gateways.
 
 ```
 ibmcloud tg gateways|gws [--output json] [-h, --help]
-``` 
+```
 
 #### Command options
 {: #list-gateways-options}
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format. 
- 
-- **--help | -h**: Optional: Get help on this command. 
+- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+
+- **--help | -h**: Optional: Get help on this command.
 
 Other commands will require a gateway ID, save the ID as an environment variable so you can use it later, for example:
 
@@ -148,7 +148,7 @@ gateway="bdf8fa2b-c518-9999-9028-f3c9ece86159"
 
 ---
 
-### ibmcloud tg gateway 
+### ibmcloud tg gateway
 {: #gateway-details}
 
 Retrieve details about a specific gateway.
@@ -162,18 +162,18 @@ ibmcloud tg gateway|gw GATEWAY_ID [--output json] [-h, --help]
 
 - **GATEWAY_ID**: ID of the gateway you want details for.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format. 
+- **--output json**: Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command. 
+- **--help | -h**: Optional: Get help on this command.
 
-#### Examples
+#### Example
 {: #gateway-details-examples}
 
 Request details for gateway.
 
 ```
 ibmcloud tg gw $gateway
-``` 
+```
 {: pre}
 
 ---
@@ -185,31 +185,31 @@ Create a transit gateway.
 
 ```
 ibmcloud tg gateway-create|gwc --name NAME --location LOCATION [--routing ROUTING] [--resource-group-id RES_GROUP_ID] [--output json] [-h, --help]
-``` 
+```
 
 #### Command options
 {: #gateway-create-options}
 
 - **--name**: Name for the new gateway.
- 
+
 - **--location**: Location of the gateway (see possible values by using : `ibmcloud tg locations`)
- 
+
 - **--routing**: Gateway routing of resources (global | local). Select 'global' to connect resources across regions. Default value is 'local'.
- 
+
 - **--resource-group-id**: Optional: Gateway resource group ID. Uses default resource group, if not specified.
 
 - **--output json**: Optional: Specify if you want the output displayed in JSON format.  
 
-- **--help | -h**: Optional: Get help on this command. 
+- **--help | -h**: Optional: Get help on this command.
 
-#### Examples
+#### Example
 {: #gateway-create-examples}
 
 Create gateway named 'myGateway' in `us-south` with `local` routing and using default resource group.
 
 ```
 ibmcloud tg gwc --name myGateway --location us-south
-``` 
+```
 {: pre}
 
 ---
@@ -221,28 +221,28 @@ Update properties on an existing gateway.
 
 ```
 ibmcloud tg gateway-update|gwu GATEWAY_ID [--name NAME] [--routing ROUTING] [--output json] [-h, --help]
-``` 
+```
 
 #### Command options
 {: #gateway-update-options}
 
-- **GATEWAY_ID**: ID of the gateway you want to update. 
+- **GATEWAY_ID**: ID of the gateway you want to update.
 
-- **--name**: Optional: New name of the gateway. 
+- **--name**: Optional: New name of the gateway.
 
 - **--routing**: Optional: Gateway routing of resources (global | local). Select global to connect resources across regions. Changing routing from global to local requires all existing connections to be local.
 
 - **--output json**: Optional: Specify if you want the output displayed in JSON format.  
 
-- **--help | -h**: Optional: Get help on this command. 
+- **--help | -h**: Optional: Get help on this command.
 
-#### Examples
+#### Example
 {: #gateway-update-examples}
 
 Update gateway with a routing value of `global`.
 
 ```
-ibmcloud tg gwu $gateway --routing global 
+ibmcloud tg gwu $gateway --routing global
 ```
 {: pre}
 
@@ -262,24 +262,24 @@ ibmcloud tg gateway-delete|gwd GATEWAY_ID [-f, --force] [-h, --help]
 {: #gateway-delete-options}
 
 - **GATEWAY_ID**: ID of the gateway you want to delete.
-   
+
 - **--force | -f**: Optional: Force the delete without confirmation.
-   
+
 - **--help | -h**: Optional: Get help on this command.
 
-#### Examples
+#### Example
 {: #gateway-delete-examples}
 
 Delete gateway with no confirmation.
 
 ```
-ibmcloud tg gwd $gateway -f 
+ibmcloud tg gwd $gateway -f
 ```
 {: pre}
 
 ---
 
-## Connection
+## Connections
 
 This section provides information about CLI commands for connections functionality.
 
@@ -298,19 +298,19 @@ ibmcloud tg connections|cs GATEWAY_ID [--output json] [-h, --help]
 {: #list-connections-options}
 
 - **GATEWAY_ID**: ID of the gateway you want connections for.
-  
-- **--output json**: Optional: Specify if you want the output displayed in JSON format. 
 
-- **--help | -h**: Optional: Get help on this command. 
+- **--output json**: Optional: Specify if you want the output displayed in JSON format.
 
-#### Examples
+- **--help | -h**: Optional: Get help on this command.
+
+#### Example
 {: #list-connections-examples}
 
 List the connections on the gateway.
 
 ```
 ibmcloud tg cs $gateway
-``` 
+```
 {: pre}
 
 Other commands will require a connection ID, save the ID as an environment variable so you can use it later, for example:
@@ -334,22 +334,22 @@ ibmcloud tg connection|c GATEWAY_ID CONNECTION_ID [--output json] [-h, --help]
 #### Command options
 {: #connection-details-options}
 
-- **GATEWAY_ID**: ID of the gateway the connection is on. 
- 
-- **CONNECTION_ID**: ID of the connection you want details for. 
- 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format. 
- 
-- **--help | -h**: Optional: Get help on this command. 
- 
-#### Examples
+- **GATEWAY_ID**: ID of the gateway the connection is on.
+
+- **CONNECTION_ID**: ID of the connection you want details for.
+
+- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+
+- **--help | -h**: Optional: Get help on this command.
+
+#### Example
 {: #connection-details-examples}
 
 Request details for a specific connection ID.
 
 ```
 ibmcloud tg c $gateway $connection
-``` 
+```
 {: pre}
 
 ---
@@ -366,9 +366,9 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-id NETWORK_ID 
 #### Command options
 {: #connection-create-options}
 
-- **GATEWAY_ID**: ID of the gateway that the new connection will be on. 
+- **GATEWAY_ID**: ID of the gateway that the new connection will be on.
 
-- **--name**: Name for the new connection. 
+- **--name**: Name for the new connection.
 
 - **--network-id**: ID of the network connection. For classic, do not set a value. For VPC, use the VPC's CRN. To find the CRN of a VPC:
 
@@ -376,11 +376,11 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-id NETWORK_ID 
    ibmcloud is vpc VPC_ID --json
    ```
 
-- **--network-type**: Network type of the connection. Values are `vpc` or `classic`. 
+- **--network-type**: Network type of the connection. Values are `vpc` or `classic`.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format. 
+- **--output json**: Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command. 
+- **--help | -h**: Optional: Get help on this command.
 
 #### Examples
 {: #connection-create-examples}
@@ -396,7 +396,7 @@ Create Classic connection named `classic-conn`.
 
 ```
 ibmcloud tg cc $gateway --name classic-conn --network-type classic
-``` 
+```
 {: pre}
 
 ---
@@ -414,17 +414,17 @@ ibmcloud tg connection-update|cu GATEWAY_ID CONNECTION_ID --name NAME [--output 
 #### Command options
 {: #connection-update-options}
 
-- **GATEWAY_ID**: ID of the gateway the connection being updated is on. 
+- **GATEWAY_ID**: ID of the gateway the connection being updated is on.
 
-- **CONNECTION_ID**: ID of the connection to update. 
+- **CONNECTION_ID**: ID of the connection to update.
 
-- **--name**: New name of the connection. 
+- **--name**: New name of the connection.
 
 - **--output json**: Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command. 
+- **--help | -h**: Optional: Get help on this command.
 
-#### Examples
+#### Example
 {: #connection-update-examples}
 
 Update name of connection to `MyConn2`.
@@ -450,21 +450,19 @@ ibmcloud tg connection-delete|cd GATEWAY_ID CONNECTION_ID [-f, --force] [-h, --h
 {: #connection-delete-options}
 
 - **GATEWAY_ID**: ID of the gateway of the connection being deleted.
-   
+
 - **CONNECTION_ID**: ID of the connection being deleted.
-   
+
 - **--force | -f**: Optional: Force the delete without confirmation.
-   
+
 - **--help | -h**: Optional: Get help on this command.
 
-#### Examples
+#### Example
 {: #connection-delete-examples}
 
 Delete connection without confirmation.
 
 ```
-ibmcloud tg cd $gateway $connection -f 
+ibmcloud tg cd $gateway $connection -f
 ```
 {: pre}
-
-
