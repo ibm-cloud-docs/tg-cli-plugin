@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-11"
+lastupdated: "2020-07-15"
 
 keywords: command line interface, commands, CLI
 
@@ -435,6 +435,69 @@ ibmcloud tg cu $gateway $connection --name MyConn2
 {: pre}
 
 ---
+
+### ibmcloud tg connection-approve
+{: #connection-approve}
+
+Approve a connection from another account as the network owner.
+
+```
+ibmcloud tg connection-approve|ca GATEWAY_ID CONNECTION_ID [-h, --help]
+```
+
+
+#### Command options
+{: #connection-approve-options}
+
+- **GATEWAY_ID**: ID of the gateway the connection is on.
+
+- **CONNECTION_ID**: ID of the connection you are approving.
+
+- **--help | -h**: Optional: Get help on this command.
+
+#### Example
+{: #connection-approve-examples}
+
+Approve the connection request.
+
+```
+ibmcloud tg ca $gateway $connection
+```
+{: pre}
+
+---
+
+### ibmcloud tg connection-reject
+{: #connection-reject}
+
+Reject a connection from another account as the network owner.
+
+```
+ibmcloud tg connection-reject|cr GATEWAY_ID CONNECTION_ID [-h, --help]
+```
+
+
+#### Command options
+{: #connection-reject-options}
+
+- **GATEWAY_ID**: ID of the gateway the connection is on.
+
+- **CONNECTION_ID**: ID of the connection you are rejecting.
+
+- **--help | -h**: Optional: Get help on this command.
+
+#### Example
+{: #connection-reject-examples}
+
+Reject the connection request.
+
+```
+ibmcloud tg cr $gateway $connection
+```
+{: pre}
+
+---
+
 
 ### ibmcloud tg connection-delete
 {: #connection-delete}
