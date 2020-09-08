@@ -35,7 +35,7 @@ The {{site.data.keyword.cloud}} Transit Gateway command-line interface (CLI) pro
 
 Follow these instructions to use the Transit Gateway Command Line Interface, which is implemented as an {{site.data.keyword.cloud_notm}} CLI plug-in.
 
-1. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-install-ibmcloud-cli#install-ibmcloud-cli){: external}.
+1. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli#install-ibmcloud-cli){: external}.
 1. Install the `tg-cli/tg` CLI plug-in to the {{site.data.keyword.cloud_notm}} CLI.
 
    To install:
