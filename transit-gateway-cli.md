@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-07-15"
+  years: 2020, 2021
+lastupdated: "2021-03-15"
 
 keywords: command line interface, commands, CLI
 
@@ -44,6 +44,14 @@ Follow these instructions to use the Transit Gateway Command Line Interface, whi
    ibmcloud plugin install tg
    ```
    {: pre}
+   
+**Note**: If you are going to use the CLI with a Virtual Private Endpoint (VPE), you must set the following variable:
+
+```bash
+export IBMCLOUD_TG_API_ENDPOINT=private.transit.cloud.ibm.com
+```
+For more information, see [Integrating with Virtual Private Endpoint for VPC](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway).
+
 
 ## ibmcloud plugin show tg
 {: #show-plugin-info}
@@ -370,15 +378,17 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-id NETWORK_ID 
 
 - **--name**: Name for the new connection.
 
+- **--network-type**: Network type of the connection. Values are `vpc` or `classic`.
+
 - **--network-id**: ID of the network connection. For classic, do not set a value. For VPC, use the VPC's CRN. To find the CRN of a VPC:
 
    ```
    ibmcloud is vpc VPC_ID --json
    ```
 
-- **--network-type**: Network type of the connection. Values are `vpc` or `classic`.
+- **--network-account-id**: ID of the IBM Cloud account to use for creating a classic connection. Only used with 'classic' type, when the account of connection is different than the gateway's account.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+- **--output json**: Optional: Specify if you want the output to display in JSON format.
 
 - **--help | -h**: Optional: Get help on this command.
 
