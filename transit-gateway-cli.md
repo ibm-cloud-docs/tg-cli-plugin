@@ -368,7 +368,7 @@ ibmcloud tg c $gateway $connection
 Create a connection on the given transit gateway.
 
 ```
-ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-id NETWORK_ID --network-type [vpc | classic] [--output json] [-h, --help]
+ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | classic] --network-id NETWORK_ID --network-account-id NETWORK-ACCOUNT-ID [--output json] [-h, --help]
 ```
 
 #### Command options
