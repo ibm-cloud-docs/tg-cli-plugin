@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-05-18"
 
 keywords: command line interface, commands, CLI
 
@@ -406,6 +406,53 @@ Create Classic connection named `classic-conn`.
 
 ```
 ibmcloud tg cc $gateway --name classic-conn --network-type classic
+```
+{: pre}
+
+---
+
+### ibmcloud tg connection-create-gre
+{: #connection-create-gre}
+
+Create a Generic Routing Encapsulation (GRE) tunnel connection on the given transit gateway.
+
+```
+ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE --base-connection-id BASE_CONNECTION_ID --local-gateway-ip LOCAL_GATEWAY_IP --local-tunnel-ip LOCAL_TUNNEL_IP --remote-gateway-ip REMOTE_GATEWAY_IP --remote-tunnel-ip REMOTE_TUNNEL_IP [--remote-bgp-asn REMOTE_BGP_ASN] [--output json]
+```
+{: pre}
+
+#### Command options
+{: #connection-create-gre-options}
+
+- **GATEWAY_ID**: ID of the gateway where the new connection is bound.
+
+- **--name**: Name of the new connection.
+
+- **--zone**: Availability zone for the GRE tunnel. Example: 'us-south-1'
+
+- **--base-connection-id**: ID of the classic network connection that will be the underlay for the GRE tunnel. 
+  
+- **--local-gateway-ip**: Local gateway IP address for the GRE tunnel connection.
+
+- **--local-tunnel-ip**: Local tunnel IP address for the GRE tunnel connection.
+
+- **--remote-gateway-ip**: Remote gateway IP address for the GRE tunnel connection.
+
+- **--local-tunnel-ip**: Remote tunnel IP address for the GRE tunnel connection.
+
+- **--remote-bgp-asn**: Optional: If the remote BGP ASN is not specified, one is generated.
+
+- **--output json**: Optional: Shows the output in JSON format.
+
+- **--help | -h**: Optional: Get help on this command.
+
+#### Example
+{: #connection-create-gre-examples}
+
+Create a GRE tunnel connection named `gre-connection` using classic connection `9037f710-8dfb-4948-a2bd-847c8dde96d3` as the base connection.
+
+```
+ibmcloud tg connection-create-gre $gateway  --name gre-connection --base-connection-id 9037f710-8dfb-9999-a2bd-847c8dde96d3  --zone us-south-2 --local-gateway-ip 192.168.100.1 --local-tunnel-ip 192.168.101.1 --remote-gateway-ip 10.242.63.12 --remote-tunnel-ip 192.168.101.2
 ```
 {: pre}
 
