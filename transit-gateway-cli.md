@@ -368,7 +368,7 @@ ibmcloud tg c $gateway $connection
 Create a connection on the given transit gateway.
 
 ```
-ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | classic] --network-id NETWORK_ID --network-account-id NETWORK-ACCOUNT-ID [--output json] [-h, --help]
+ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | directlink | classic] --network-id NETWORK_ID --network-account-id NETWORK-ACCOUNT-ID [--output json] [-h, --help]
 ```
 
 #### Command options
@@ -378,9 +378,9 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | cl
 
 - **--name**: Name for the new connection.
 
-- **--network-type**: Network type of the connection. Values are `vpc` or `classic`.
+- **--network-type**: Network type of the connection. Values are `vpc`, `directlink`, or `classic`.
 
-- **--network-id**: ID of the network connection. For classic, do not set a value. For VPC, use the VPC's CRN. To find the CRN of a VPC:
+- **--network-id**: ID of the network connection. For classic, do not set a value. For VPC and directlink, use the CRN. To find the CRN of a VPC:
 
    ```
    ibmcloud is vpc VPC_ID --json
