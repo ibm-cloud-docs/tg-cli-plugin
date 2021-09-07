@@ -24,7 +24,7 @@ subcollection: transit-gateway
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Transit Gateway CLI reference
+# Transit Gateway CLI
 {: #transit-gateway-cli}
 
 The {{site.data.keyword.cloud}} Transit Gateway command-line interface (CLI) provides an additional interface into the Transit Gateway service. You can use the CLI to create and manage gateways and connections and list available locations for gateways.   
@@ -44,7 +44,7 @@ Follow these instructions to use the Transit Gateway Command Line Interface, whi
    ibmcloud plugin install tg
    ```
    {: pre}
-   
+
 **Note**: If you are going to use the CLI with a Virtual Private Endpoint (VPE), you must set the following variable:
 
 ```bash
@@ -430,8 +430,8 @@ ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE --bas
 
 - **--zone**: Availability zone for the GRE tunnel. Example: 'us-south-1'
 
-- **--base-connection-id**: ID of the classic network connection that will be the underlay for the GRE tunnel. 
-  
+- **--base-connection-id**: ID of the classic network connection that will be the underlay for the GRE tunnel.
+
 - **--local-gateway-ip**: Local gateway IP address for the GRE tunnel connection.
 
 - **--local-tunnel-ip**: Local tunnel IP address for the GRE tunnel connection.

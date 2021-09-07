@@ -1,9 +1,0 @@
-{:navgroup: .navgroup}
-{:topicgroup: .topicgroup}
-
-{: .toc subcollection="tg-cli-plugin" audience="network" href="/docs/tg-cli-plugin?topic=tg-cli-plugin-transit-gateway-cli" path="tg-cli-plugin"}
-Transit Gateway
-
-    {: .navgroup id="reference"}
-    transit-gateway-cli.md
-    {: .navgroup-end} 
