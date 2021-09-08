@@ -19,4 +19,4 @@ toc:
   - navgroup:
       id: reference
       topics:
-      - /tg-cli-plugin/tg-cli-plugin-transit-gateway-cli
+      - transit-gateway-cli.md
