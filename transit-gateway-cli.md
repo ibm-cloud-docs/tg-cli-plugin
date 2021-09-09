@@ -125,12 +125,12 @@ Request details for location `us-south`.
 ibmcloud tg location us-south
 ```
 {: pre}
+
 ---
 
 ## Gateways
 
 This section provides information about CLI commands for gateway functionality.
-
 
 ### ibmcloud tg gateways
 {: #list-gateways}
