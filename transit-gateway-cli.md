@@ -40,7 +40,7 @@ Follow these instructions to use the Transit Gateway Command Line Interface, whi
 
    To install:
 
-   ```
+   ```sh
    ibmcloud plugin install tg
    ```
    {: pre}
@@ -58,7 +58,7 @@ For more information, see [Integrating with Virtual Private Endpoint for VPC](/d
 
 Show Transit Gateway CLI plug-in information.
 
-```
+```sh
 ibmcloud plugin show tg
 ```
 {: pre}
@@ -70,7 +70,7 @@ ibmcloud plugin show tg
 
 Get help on Transit Gateway commands.
 
-```
+```sh
 ibmcloud tg -h|--help
 ```
 
@@ -85,7 +85,7 @@ This section provides information about CLI commands for location functionality.
 
 Use this command to list possible locations to create a gateway.
 
-```
+```sh
 ibmcloud tg locations|locs [--output json] [-h, --help]
 ```
 
@@ -103,7 +103,7 @@ ibmcloud tg locations|locs [--output json] [-h, --help]
 
 Retrieves specific information for this location.
 
-```
+```sh
 ibmcloud tg location|loc NAME [--output json] [-h, --help]
 ```
 
@@ -121,7 +121,7 @@ ibmcloud tg location|loc NAME [--output json] [-h, --help]
 
 Request details for location `us-south`.
 
-```
+```sh
 ibmcloud tg location us-south
 ```
 {: pre}
@@ -137,7 +137,7 @@ This section provides information about CLI commands for gateway functionality.
 
 List transit gateways.
 
-```
+```sh
 ibmcloud tg gateways|gws [--output json] [-h, --help]
 ```
 
@@ -150,9 +150,10 @@ ibmcloud tg gateways|gws [--output json] [-h, --help]
 
 Other commands will require a gateway ID, save the ID as an environment variable so you can use it later, for example:
 
-```
+```text
 gateway="bdf8fa2b-c518-9999-9028-f3c9ece86159"
 ```
+{: screen}
 
 ---
 
@@ -161,7 +162,7 @@ gateway="bdf8fa2b-c518-9999-9028-f3c9ece86159"
 
 Retrieve details about a specific gateway.
 
-```
+```sh
 ibmcloud tg gateway|gw GATEWAY_ID [--output json] [-h, --help]
 ```
 
@@ -179,7 +180,7 @@ ibmcloud tg gateway|gw GATEWAY_ID [--output json] [-h, --help]
 
 Request details for gateway.
 
-```
+```sh
 ibmcloud tg gw $gateway
 ```
 {: pre}
@@ -191,7 +192,7 @@ ibmcloud tg gw $gateway
 
 Create a transit gateway.
 
-```
+```sh
 ibmcloud tg gateway-create|gwc --name NAME --location LOCATION [--routing ROUTING] [--resource-group-id RES_GROUP_ID] [--output json] [-h, --help]
 ```
 
@@ -215,7 +216,7 @@ ibmcloud tg gateway-create|gwc --name NAME --location LOCATION [--routing ROUTIN
 
 Create gateway named 'myGateway' in `us-south` with `local` routing and using default resource group.
 
-```
+```sh
 ibmcloud tg gwc --name myGateway --location us-south
 ```
 {: pre}
@@ -227,7 +228,7 @@ ibmcloud tg gwc --name myGateway --location us-south
 
 Update properties on an existing gateway.
 
-```
+```sh
 ibmcloud tg gateway-update|gwu GATEWAY_ID [--name NAME] [--routing ROUTING] [--output json] [-h, --help]
 ```
 
@@ -249,7 +250,7 @@ ibmcloud tg gateway-update|gwu GATEWAY_ID [--name NAME] [--routing ROUTING] [--o
 
 Update gateway with a routing value of `global`.
 
-```
+```sh
 ibmcloud tg gwu $gateway --routing global
 ```
 {: pre}
@@ -261,7 +262,7 @@ ibmcloud tg gwu $gateway --routing global
 
 Delete an existing gateway.
 
-```
+```sh
 ibmcloud tg gateway-delete|gwd GATEWAY_ID [-f, --force] [-h, --help]
 ```
 
@@ -280,7 +281,7 @@ ibmcloud tg gateway-delete|gwd GATEWAY_ID [-f, --force] [-h, --help]
 
 Delete gateway with no confirmation.
 
-```
+```sh
 ibmcloud tg gwd $gateway -f
 ```
 {: pre}
@@ -297,7 +298,7 @@ This section provides information about CLI commands for connections functionali
 
 List connections on the given transit gateway.
 
-```
+```sh
 ibmcloud tg connections|cs GATEWAY_ID [--output json] [-h, --help]
 ```
 
@@ -316,16 +317,17 @@ ibmcloud tg connections|cs GATEWAY_ID [--output json] [-h, --help]
 
 List the connections on the gateway.
 
-```
+```sh
 ibmcloud tg cs $gateway
 ```
 {: pre}
 
 Other commands will require a connection ID, save the ID as an environment variable so you can use it later, for example:
 
-```
+```text
 connection="4892849f-368e-9999-bb58-8888fb21e513"
 ```
+{: screen}
 
 ---
 
@@ -334,7 +336,7 @@ connection="4892849f-368e-9999-bb58-8888fb21e513"
 
 Retrieve details about a specific connection.
 
-```
+```sh
 ibmcloud tg connection|c GATEWAY_ID CONNECTION_ID [--output json] [-h, --help]
 ```
 
@@ -355,7 +357,7 @@ ibmcloud tg connection|c GATEWAY_ID CONNECTION_ID [--output json] [-h, --help]
 
 Request details for a specific connection ID.
 
-```
+```sh
 ibmcloud tg c $gateway $connection
 ```
 {: pre}
@@ -367,7 +369,7 @@ ibmcloud tg c $gateway $connection
 
 Create a connection on the given transit gateway.
 
-```
+```sh
 ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | directlink | classic] --network-id NETWORK_ID --network-account-id NETWORK-ACCOUNT-ID [--output json] [-h, --help]
 ```
 
@@ -382,7 +384,7 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | di
 
 - **--network-id**: ID of the network connection. For classic, do not set a value. For VPC and directlink, use the CRN. To find the CRN of a VPC:
 
-   ```
+   ```sh
    ibmcloud is vpc VPC_ID --json
    ```
 
@@ -397,14 +399,14 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | di
 
 Create VPC connection named `vpc-connection` using `vpcCRN="crn:v1:bluemix:public:is:us-south:a/3aa0a9999a1a46258064d84f7f447920::vpc:r134-f87014d5-87d2-46d1-9999-24683082f6bc"`
 
-```
+```sh
 ibmcloud tg cc $gateway --name vpc-connection --network-id $vpcCRN --network-type vpc
 ```
 {: pre}
 
 Create Classic connection named `classic-conn`.
 
-```
+```sh
 ibmcloud tg cc $gateway --name classic-conn --network-type classic
 ```
 {: pre}
@@ -416,7 +418,7 @@ ibmcloud tg cc $gateway --name classic-conn --network-type classic
 
 Create a Generic Routing Encapsulation (GRE) tunnel connection on the given transit gateway.
 
-```
+```sh
 ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE --base-connection-id BASE_CONNECTION_ID --local-gateway-ip LOCAL_GATEWAY_IP --local-tunnel-ip LOCAL_TUNNEL_IP --remote-gateway-ip REMOTE_GATEWAY_IP --remote-tunnel-ip REMOTE_TUNNEL_IP [--remote-bgp-asn REMOTE_BGP_ASN] [--output json]
 ```
 {: pre}
@@ -451,7 +453,7 @@ ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE --bas
 
 Create a GRE tunnel connection named `gre-connection` using classic connection `9037f710-8dfb-4948-a2bd-847c8dde96d3` as the base connection.
 
-```
+```sh
 ibmcloud tg connection-create-gre $gateway  --name gre-connection --base-connection-id 9037f710-8dfb-9999-a2bd-847c8dde96d3  --zone us-south-2 --local-gateway-ip 192.168.100.1 --local-tunnel-ip 192.168.101.1 --remote-gateway-ip 10.242.63.12 --remote-tunnel-ip 192.168.101.2
 ```
 {: pre}
@@ -463,7 +465,7 @@ ibmcloud tg connection-create-gre $gateway  --name gre-connection --base-connect
 
 Update properties on an existing connection.
 
-```
+```sh
 ibmcloud tg connection-update|cu GATEWAY_ID CONNECTION_ID --name NAME [--output json] [-h, --help]
 ```
 
@@ -486,7 +488,7 @@ ibmcloud tg connection-update|cu GATEWAY_ID CONNECTION_ID --name NAME [--output 
 
 Update name of connection to `MyConn2`.
 
-```
+```sh
 ibmcloud tg cu $gateway $connection --name MyConn2
 ```
 {: pre}
@@ -498,7 +500,7 @@ ibmcloud tg cu $gateway $connection --name MyConn2
 
 Approve a connection from another account as the network owner.
 
-```
+```sh
 ibmcloud tg connection-approve|ca GATEWAY_ID CONNECTION_ID [-h, --help]
 ```
 
@@ -517,7 +519,7 @@ ibmcloud tg connection-approve|ca GATEWAY_ID CONNECTION_ID [-h, --help]
 
 Approve the connection request.
 
-```
+```sh
 ibmcloud tg ca $gateway $connection
 ```
 {: pre}
@@ -529,7 +531,7 @@ ibmcloud tg ca $gateway $connection
 
 Reject a connection from another account as the network owner.
 
-```
+```sh
 ibmcloud tg connection-reject|cr GATEWAY_ID CONNECTION_ID [-h, --help]
 ```
 
@@ -548,7 +550,7 @@ ibmcloud tg connection-reject|cr GATEWAY_ID CONNECTION_ID [-h, --help]
 
 Reject the connection request.
 
-```
+```sh
 ibmcloud tg cr $gateway $connection
 ```
 {: pre}
@@ -561,7 +563,7 @@ ibmcloud tg cr $gateway $connection
 
 Delete an existing connection.
 
-```
+```sh
 ibmcloud tg connection-delete|cd GATEWAY_ID CONNECTION_ID [-f, --force] [-h, --help]
 ```
 
@@ -582,7 +584,7 @@ ibmcloud tg connection-delete|cd GATEWAY_ID CONNECTION_ID [-f, --force] [-h, --h
 
 Delete connection without confirmation.
 
-```
+```sh
 ibmcloud tg cd $gateway $connection -f
 ```
 {: pre}
