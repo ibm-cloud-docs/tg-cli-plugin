@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-21"
+lastupdated: "2021-11-01"
 
 keywords: command line interface, commands, CLI
 
@@ -77,6 +77,7 @@ ibmcloud tg -h|--help
 ---
 
 ## Locations
+{: #locations}
 
 This section provides information about CLI commands for location functionality.
 
@@ -129,6 +130,7 @@ ibmcloud tg location us-south
 ---
 
 ## Gateways
+{: #gateways}
 
 This section provides information about CLI commands for gateway functionality.
 
@@ -289,6 +291,7 @@ ibmcloud tg gwd $gateway -f
 ---
 
 ## Connections
+{: #connections}
 
 This section provides information about CLI commands for connections functionality.
 
@@ -588,3 +591,141 @@ Delete connection without confirmation.
 ibmcloud tg cd $gateway $connection -f
 ```
 {: pre}
+
+## Route report
+{: #route-report}
+
+This section provides information about CLI commands for route report functionality.
+
+### ibmcloud tg route-reports
+{: #list-routereports}
+
+Use this command to list route reports available on a gateway.
+
+```sh
+ibmcloud tg route-reports|rrs GATEWAY_ID [--output json] [-h, --help]
+```
+
+#### Command options
+{: #list-routereports-options}
+
+- **GATEWAY_ID**: ID of the gateway to list route reports for.
+
+- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+
+- **--help | -h**: Optional: Get help on this command.
+
+#### Example
+{: #list-routereports-examples}
+
+List the route reports on the gateway.
+
+```sh
+ibmcloud tg rrs $gateway
+```
+{: pre}
+
+Other commands will require a route report ID, save the ID as an environment variable so you can use it later, for example:
+
+```text
+report="4892849f-368e-9999-4444-8888fb21e513"
+```
+{: screen}
+
+---
+
+### ibmcloud tg route-report
+{: #routereport-details}
+
+Retrieve details about a specific route report.
+
+```sh
+ibmcloud tg route-report|rr GATEWAY_ID REPORT_ID [--output json] [-h, --help]
+```
+
+#### Command options
+{: #routereport-details-options}
+
+- **GATEWAY_ID**: ID of the gateway the route report is from.
+
+- **REPORT_ID**: ID of the route report you want details for.
+
+- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+
+- **--help | -h**: Optional: Get help on this command.
+
+#### Example
+{: #routereport-details-examples}
+
+Request details for a route report.
+
+```sh
+ibmcloud tg rr $gateway $report
+```
+{: pre}
+
+---
+
+### ibmcloud tg route-report-create
+{: #routereport-create}
+
+Create a route report.
+
+```sh
+ibmcloud tg route-report-create|rrc GATEWAY_ID [--output json] [-h, --help]
+```
+
+#### Command options
+{: #routereport-create-options}
+
+- **GATEWAY_ID**: ID of the gateway the route report is created for.
+
+- **--output json**: Optional: Specify if you want the output displayed in JSON format.  
+
+- **--help | -h**: Optional: Get help on this command.
+
+#### Example
+{: #routereport-create-examples}
+
+Create a route report for a gateway.
+
+```sh
+ibmcloud tg rrc $gateway
+```
+{: pre}
+
+---
+
+### ibmcloud tg route-report-delete
+{: #routereport-delete}
+
+Delete an existing route report.
+
+```sh
+ibmcloud tg route-report-delete|rrd GATEWAY_ID REPORT_ID [-f, --force] [-h, --help]
+```
+
+
+#### Command options
+{: #routereport-delete-options}
+
+- **GATEWAY_ID**: ID of the gateway the report is for.
+
+- **REPORT_ID**: ID of the report you want to delete.
+
+- **--force | -f**: Optional: Force the delete without confirmation.
+
+- **--help | -h**: Optional: Get help on this command.
+
+#### Example
+{: #routereport-delete-examples}
+
+Delete route report with no confirmation.
+
+```sh
+ibmcloud tg rrd $gateway $report -f
+```
+{: pre}
+
+---
+
