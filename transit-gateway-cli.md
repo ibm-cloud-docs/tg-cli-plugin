@@ -580,7 +580,7 @@ ibmcloud tg cd $gateway $connection -f
 ```
 {: pre}
 
-## Route report
+## Route reports
 {: #route-report}
 
 This section provides information about CLI commands for route report functionality.
