@@ -2,27 +2,15 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-15"
 
 keywords: command line interface, commands, CLI
 
 subcollection: transit-gateway
+
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Transit Gateway CLI
 {: #transit-gateway-cli}
@@ -728,4 +716,3 @@ ibmcloud tg rrd $gateway $report -f
 {: pre}
 
 ---
-
