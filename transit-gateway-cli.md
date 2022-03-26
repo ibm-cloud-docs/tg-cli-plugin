@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-15"
+  years: 2020, 2022
+lastupdated: "2022-03-25"
 
 keywords: command line interface, commands, CLI
 
@@ -381,6 +381,8 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | di
 
 - **--network-account-id**: ID of the IBM Cloud account to use for creating a classic connection. Only used with 'classic' type, when the account of connection is different than the gateway's account.
 
+- **--default-prefix-filter**: Optional: Default prefix filter of the connection (permit | deny).
+
 - **--output json**: Optional: Specify if you want the output to display in JSON format.
 
 - **--help | -h**: Optional: Get help on this command.
@@ -469,6 +471,8 @@ ibmcloud tg connection-update|cu GATEWAY_ID CONNECTION_ID --name NAME [--output 
 - **CONNECTION_ID**: ID of the connection to update.
 
 - **--name**: New name of the connection.
+
+- **--default-prefix-filter**: Optional: Default prefix filter of the connection (permit | deny).
 
 - **--output json**: Optional: Specify if you want the output displayed in JSON format.
 
@@ -693,7 +697,6 @@ Delete an existing route report.
 ibmcloud tg route-report-delete|rrd GATEWAY_ID REPORT_ID [-f, --force] [-h, --help]
 ```
 
-
 #### Command options
 {: #routereport-delete-options}
 
@@ -716,3 +719,73 @@ ibmcloud tg rrd $gateway $report -f
 {: pre}
 
 ---
+
+### ibmcloud tg prefix-filter-create
+{: #prefix-filter-create}
+
+Add prefix filter to connection.
+
+```sh
+ibmcloud tg prefix-filter-create GATEWAY_ID CONNECTION_ID --prefix PREFIX --action ACTION [--le LE] [--ge GE] [--before BEFORE] [--output json]
+```
+
+#### Command options
+{: #prefix-filter-create-options}
+
+- **GATEWAY_ID**: ID of the gateway the prefix filter is being applied to.
+
+- **CONNECTION_ID**: ID of the connection the prefix filter is being applied to.
+
+- **--prefix**: Network prefix that the filter will be applied to.
+
+- **--action**: Action to take on the specified prefix ( permit | deny ).
+
+- **--le**: Optional: Prefix filter will be applied to subnet mask less than or equal to this value.
+
+- **--ge**: Optional: Prefix filter will be applied to subnet mask greater than or equal to this value.
+
+- **--before**: Optional: Identifier of the prefix filter this filter should be applied before.  If empty, this filter is applied last.
+
+- **--output**: Optional: Specify output format; Only 'json' is supported.
+
+##### Examples
+{: #prefix-filter-create-examples}
+
+Add prefix filter for `10.0.250.0/24` to gateway `9f559c43-63f4-4da5-b312-b525a8dce185`, connection `6c1bdc19-4adb-4760-8cdc-ef3b74b626f7` with the action `permit`.
+
+```sh
+ibmcloud tg pfc 9f559c43-63f4-4da5-b312-b525a8dce185 6c1bdc19-4adb-4760-8cdc-ef3b74b626f7 --prefix 10.0.250.0/24 --action permit
+```
+{: pre}
+
+---
+
+### ibmcloud tg prefix-filter-delete
+{: #prefix-filter-delete}
+
+Delete prefix filter from connection.
+
+```sh
+ibmcloud tg prefix-filter-delete GATEWAY_ID CONNECTION_ID FILTER_ID [-f, --force]
+```
+
+#### Command options
+{: #prefix-filter-delete-options}
+
+- **GATEWAY_ID**: ID of the gateway the prefix filter will be deleted from.
+
+- **CONNECTION_ID**: ID of the connection the prefix filter will be deleted from.
+
+- **FILTER_ID**: ID of the prefix filter being deleted.
+
+- **--force, -f**: Force the deletion operation without confirmation.
+
+##### Examples
+{: #prefix-filter-delete-examples}
+
+Delete prefix filter ID `b4dbe0a6-c52d-4128-cc32-6f53d86bc82b` from gateway `9f559c43-63f4-4da5-b312-b525a8dce185` and connection `6c1bdc19-4adb-4760-8cdc-ef3b74b626f7`
+
+```sh
+ibmcloud tg pfd 9f559c43-63f4-4da5-b312-b525a8dce185 6c1bdc19-4adb-4760-8cdc-ef3b74b626f7 b4dbe0a6-c52d-4128-cc32-6f53d86bc82b
+```
+{: pre}

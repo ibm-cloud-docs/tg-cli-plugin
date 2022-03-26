@@ -6,7 +6,6 @@ toc:
   properties:
     subcollection: tg-cli-plugin
     version: 2
-    category: network_interconnectivity
     audience: service
     href: /docs/tg-cli-plugin
     console-page: /interconnectivity
