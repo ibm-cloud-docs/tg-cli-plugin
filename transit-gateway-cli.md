@@ -426,7 +426,7 @@ ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE GATEW
 
 - **--name**: Name of the new connection.
 
-- **--zone**: Availability zone for the GRE tunnel. Example: 'us-south-1'
+- **--zone**: Availability zone for the GRE tunnel. Example: `us-south-1`
 
 - **--local-gateway-ip**: Local gateway IP address for the GRE tunnel connection.
 
@@ -438,9 +438,9 @@ ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE GATEW
 
 - **--base-connection-id**: Optional: ID of the classic network connection that will be the underlay for the GRE tunnel. For use only with the `gre_tunnel` network type.
 
-- **--base-network-type**: Network type of the base connection (classic). For use only with the `unbound_gre_tunnel` network type.
+- **--base-network-type**: Network type of the base connection (`classic`). For use only with the `unbound_gre_tunnel` network type.
 
-- **--network-type**: Optional: Network type of the GRE connection. values are `gre_tunnel` or `unbound_gre_tunnel`. The default value is `gre_tunnel`.
+- **--network-type**: Optional: Network type of the GRE connection. Values are `gre_tunnel` or `unbound_gre_tunnel`. The default value is `gre_tunnel`.
 
 - **--network-account-id**: Optional: ID of account to connect to a classic connection. Use only with `classic` type when the account of the connection is different than gateway's account.
 
