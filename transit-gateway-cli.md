@@ -438,7 +438,7 @@ ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE GATEW
 
 - **--base-connection-id**: Optional: ID of the classic network connection that will be the underlay for the GRE tunnel.
 
-- **--base-network-type**: Optional: Network type of the base connection (classic). Use only with the `unbound_gre_tunnel` network type.
+- **--base-network-type**: Network type of the base connection (classic). Required when used with the `unbound_gre_tunnel` network type.
 
 - **--network-type**: Optional: Network type of the GRE connection. values are `gre_tunnel` or `unbound_gre_tunnel`. The default value is `gre_tunnel`.
 
