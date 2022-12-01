@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-25"
+lastupdated: "2022-11-30"
 
 keywords: command line interface, commands, CLI
 
@@ -360,6 +360,9 @@ ibmcloud tg c $gateway $connection
 
 Create a connection on the given transit gateway.
 
+The `power-virtual-server` value is limited to internal use only.
+{: important}
+
 ```sh
 ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | directlink | classic] --network-id NETWORK_ID --network-account-id NETWORK-ACCOUNT-ID [--output json] [-h, --help]
 ```
@@ -387,8 +390,8 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | di
 
 - **--help | -h**: Optional: Get help on this command.
 
-#### Examples
-{: #connection-create-examples}
+#### Example
+{: #connection-create-example}
 
 Create VPC connection named `vpc-connection` using `vpcCRN="crn:v1:bluemix:public:is:us-south:a/3aa0a9999a1a46258064d84f7f447920::vpc:r134-f87014d5-87d2-46d1-9999-24683082f6bc"`
 
@@ -409,10 +412,10 @@ ibmcloud tg cc $gateway --name classic-conn --network-type classic
 ### ibmcloud tg connection-create-gre
 {: #connection-create-gre}
 
-Create a Generic Routing Encapsulation (GRE) tunnel connection on the given transit gateway.
+Create a Generic Routing Encapsulation (GRE) tunnel or unbound GRE connection on the given transit gateway.
 
 ```sh
-ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE --base-connection-id BASE_CONNECTION_ID --local-gateway-ip LOCAL_GATEWAY_IP --local-tunnel-ip LOCAL_TUNNEL_IP --remote-gateway-ip REMOTE_GATEWAY_IP --remote-tunnel-ip REMOTE_TUNNEL_IP [--remote-bgp-asn REMOTE_BGP_ASN] [--output json]
+ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE GATEWAY_ID --name NAME --zone ZONE --local-gateway-ip LOCAL_GATEWAY_IP --local-tunnel-ip LOCAL_TUNNEL_IP --remote-gateway-ip REMOTE_GATEWAY_IP --remote-tunnel-ip REMOTE_TUNNEL_IP [--base-connection-id BASE_CONNECTION_ID] [--base-network-type BASE_NETWORK_TYPE] [--network-type NETWORK-TYPE] [--network-account-id NETWORK_ACCOUNT_ID] [--remote-bgp-asn REMOTE_BGP_ASN] [--default-prefix-filter DEFAULT_PREFIX_FILTER] [--output json]
 ```
 {: pre}
 
@@ -425,15 +428,21 @@ ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE --bas
 
 - **--zone**: Availability zone for the GRE tunnel. Example: 'us-south-1'
 
-- **--base-connection-id**: ID of the classic network connection that will be the underlay for the GRE tunnel.
-
 - **--local-gateway-ip**: Local gateway IP address for the GRE tunnel connection.
 
 - **--local-tunnel-ip**: Local tunnel IP address for the GRE tunnel connection.
 
 - **--remote-gateway-ip**: Remote gateway IP address for the GRE tunnel connection.
 
-- **--local-tunnel-ip**: Remote tunnel IP address for the GRE tunnel connection.
+- **--remote-tunnel-ip**: Remote tunnel IP address for the GRE tunnel connection.
+
+- **--base-connection-id**: Optional: ID of the classic network connection that will be the underlay for the GRE tunnel.
+
+- **--base-network-type**: Optional: Network type of the base connection (classic). Use only with the `unbound_gre_tunnel` network type.
+
+- **--network-type**: Optional: Network type of the GRE connection. values are `gre_tunnel` or `unbound_gre_tunnel`. The default value is `gre_tunnel`.
+
+- **--network-account-id**: Optional: ID of account to connect to a classic connection. Use only with `classic` type when the account of the connection is different than gateway's account.
 
 - **--remote-bgp-asn**: Optional: If the remote BGP ASN is not specified, one is generated.
 
@@ -441,13 +450,13 @@ ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE --bas
 
 - **--help | -h**: Optional: Get help on this command.
 
-#### Example
+#### Examples
 {: #connection-create-gre-examples}
 
 Create a GRE tunnel connection named `gre-connection` using classic connection `9037f710-8dfb-4948-a2bd-847c8dde96d3` as the base connection.
 
 ```sh
-ibmcloud tg connection-create-gre $gateway  --name gre-connection --base-connection-id 9037f710-8dfb-9999-a2bd-847c8dde96d3  --zone us-south-2 --local-gateway-ip 192.168.100.1 --local-tunnel-ip 192.168.101.1 --remote-gateway-ip 10.242.63.12 --remote-tunnel-ip 192.168.101.2
+ibmcloud tg connection-create-gre $gateway --name gre-connection --base-connection-id 9037f710-8dfb-9999-a2bd-847c8dde96d3  --zone us-south-2 --local-gateway-ip 192.168.100.1 --local-tunnel-ip 192.168.101.1 --remote-gateway-ip 10.242.63.12 --remote-tunnel-ip 192.168.101.2
 ```
 {: pre}
 
