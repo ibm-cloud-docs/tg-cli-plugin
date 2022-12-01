@@ -436,7 +436,7 @@ ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE GATEW
 
 - **--remote-tunnel-ip**: Remote tunnel IP address for the GRE tunnel connection.
 
-- **--base-connection-id**: Optional: ID of the classic network connection that will be the underlay for the GRE tunnel.
+- **--base-connection-id**: Optional: ID of the classic network connection that will be the underlay for the GRE tunnel. For use only with the `gre_tunnel` network type.
 
 - **--base-network-type**: Network type of the base connection (classic). For use only with the `unbound_gre_tunnel` network type.
 
