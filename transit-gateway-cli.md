@@ -40,7 +40,7 @@ export IBMCLOUD_TG_API_ENDPOINT=private.transit.cloud.ibm.com
 ```
 For more information, see [Integrating with Virtual Private Endpoint for VPC](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway).
 
-## ibmcloud plugin show tg
+## `ibmcloud plugin show tg`
 {: #show-plugin-info}
 
 Show Transit Gateway CLI plug-in information.
@@ -52,7 +52,7 @@ ibmcloud plugin show tg
 
 ---
 
-## ibmcloud tg --help
+## `ibmcloud tg --help`
 {: #command-help}
 
 Get help on Transit Gateway commands.
@@ -68,7 +68,7 @@ ibmcloud tg -h|--help
 
 This section provides information about CLI commands for location functionality.
 
-### ibmcloud tg locations
+### `ibmcloud tg locations`
 {: #list-locations}
 
 Use this command to list possible locations to create a gateway.
@@ -88,7 +88,7 @@ ibmcloud tg locations|locs [--output json] [-h, --help]
 
 ---
 
-### ibmcloud tg location  
+### `ibmcloud tg location`
 {: #location-detail}
 
 Retrieves specific information for this location.
@@ -126,7 +126,7 @@ ibmcloud tg location us-south
 
 This section provides information about CLI commands for gateway functionality.
 
-### ibmcloud tg gateways
+### `ibmcloud tg gateways`
 {: #list-gateways}
 
 List transit gateways.
@@ -153,7 +153,7 @@ gateway="bdf8fa2b-c518-9999-9028-f3c9ece86159"
 
 ---
 
-### ibmcloud tg gateway
+### `ibmcloud tg gateway`
 {: #gateway-details}
 
 Retrieve details about a specific gateway.
@@ -186,7 +186,7 @@ ibmcloud tg gw $gateway
 
 ---
 
-### ibmcloud tg gateway-create
+### `ibmcloud tg gateway-create`
 {: #gateway-create}
 
 Create a transit gateway.
@@ -202,7 +202,7 @@ ibmcloud tg gateway-create|gwc --name NAME --location LOCATION [--routing ROUTIN
 :   Name for the new gateway.
 
 `--location`
-:   Location of the gateway (see possible values by using : `ibmcloud tg locations`)
+:   Location of the gateway (see possible values by using `ibmcloud tg locations`)
 
 `--routing`
 :   Gateway routing of resources (global | local). Select 'global' to connect resources across regions. Default value is 'local'.
@@ -228,7 +228,7 @@ ibmcloud tg gwc --name myGateway --location us-south
 
 ---
 
-### ibmcloud tg gateway-update
+### `ibmcloud tg gateway-update`
 {: #gateway-update}
 
 Update properties on an existing gateway.
@@ -267,7 +267,7 @@ ibmcloud tg gwu $gateway --routing global
 
 ---
 
-### ibmcloud tg gateway-delete
+### `ibmcloud tg gateway-delete`
 {: #gateway-delete}
 
 Delete an existing gateway.
@@ -307,7 +307,7 @@ ibmcloud tg gwd $gateway -f
 This section provides information about CLI commands for connections functionality.
 
 
-### ibmcloud tg connections
+### `ibmcloud tg connections`
 {: #list-connections}
 
 List connections on the given transit gateway.
@@ -348,7 +348,7 @@ connection="4892849f-368e-9999-bb58-8888fb21e513"
 
 ---
 
-### ibmcloud tg connection
+### `ibmcloud tg connection`
 {: #connection-details}
 
 Retrieve details about a specific connection.
@@ -385,7 +385,7 @@ ibmcloud tg c $gateway $connection
 
 ---
 
-### ibmcloud tg connection-create
+### `ibmcloud tg connection-create`
 {: #connection-create}
 
 Create a connection on the given transit gateway.
@@ -447,7 +447,7 @@ ibmcloud tg cc $gateway --name classic-conn --network-type classic
 
 ---
 
-### ibmcloud tg connection-create-gre
+### `ibmcloud tg connection-create-gre`
 {: #connection-create-gre}
 
 Create a Generic Routing Encapsulation (GRE) tunnel or unbound GRE connection on the given transit gateway.
@@ -511,7 +511,7 @@ ibmcloud tg connection-create-gre $gateway --name gre-connection --base-connecti
 
 ---
 
-### ibmcloud tg connection-update
+### `ibmcloud tg connection-update`
 {: #connection-update}
 
 Update properties on an existing connection.
@@ -553,7 +553,7 @@ ibmcloud tg cu $gateway $connection --name MyConn2
 
 ---
 
-### ibmcloud tg connection-approve
+### `ibmcloud tg connection-approve`
 {: #connection-approve}
 
 Approve a connection from another account as the network owner.
@@ -587,7 +587,7 @@ ibmcloud tg ca $gateway $connection
 
 ---
 
-### ibmcloud tg connection-reject
+### `ibmcloud tg connection-reject`
 {: #connection-reject}
 
 Reject a connection from another account as the network owner.
@@ -622,7 +622,7 @@ ibmcloud tg cr $gateway $connection
 ---
 
 
-### ibmcloud tg connection-delete
+### `ibmcloud tg connection-delete`
 {: #connection-delete}
 
 Delete an existing connection.
@@ -662,7 +662,7 @@ ibmcloud tg cd $gateway $connection -f
 
 This section provides information about CLI commands for route report functionality.
 
-### ibmcloud tg route-reports
+### `ibmcloud tg route-reports`
 {: #list-routereports}
 
 Use this command to list route reports available on a gateway.
@@ -702,7 +702,7 @@ report="4892849f-368e-9999-4444-8888fb21e513"
 
 ---
 
-### ibmcloud tg route-report
+### `ibmcloud tg route-report`
 {: #routereport-details}
 
 Retrieve details about a specific route report.
@@ -738,7 +738,7 @@ ibmcloud tg rr $gateway $report
 
 ---
 
-### ibmcloud tg route-report-create
+### `ibmcloud tg route-report-create`
 {: #routereport-create}
 
 Create a route report.
@@ -771,7 +771,7 @@ ibmcloud tg rrc $gateway
 
 ---
 
-### ibmcloud tg route-report-delete
+### `ibmcloud tg route-report-delete`
 {: #routereport-delete}
 
 Delete an existing route report.
@@ -807,7 +807,7 @@ ibmcloud tg rrd $gateway $report -f
 
 ---
 
-### ibmcloud tg prefix-filter-create
+### `ibmcloud tg prefix-filter-create`
 {: #prefix-filter-create}
 
 Add prefix filter to connection.
@@ -855,7 +855,7 @@ ibmcloud tg pfc 9f559c43-63f4-4da5-b312-b525a8dce185 6c1bdc19-4adb-4760-8cdc-ef3
 
 ---
 
-### ibmcloud tg prefix-filter-delete
+### `ibmcloud tg prefix-filter-delete`
 {: #prefix-filter-delete}
 
 Delete prefix filter from connection.
