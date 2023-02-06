@@ -139,7 +139,7 @@ ibmcloud tg gateways|gws [--output json] [-h, --help]
 {: #list-gateways-options}
 
 `--output json`
-Optional: Specify if you want the output displayed in JSON format.
+:   Optional: Specify if you want the output displayed in JSON format.
 
 `--help | -h`
 :   Optional: Get help on this command.
@@ -169,7 +169,7 @@ ibmcloud tg gateway|gw GATEWAY_ID [--output json] [-h, --help]
 :   ID of the gateway you want details for.
 
 `--output json`
-Optional: Specify if you want the output displayed in JSON format.
+:   Optional: Specify if you want the output displayed in JSON format.
 
 `--help | -h`
 :   Optional: Get help on this command.
@@ -566,11 +566,11 @@ ibmcloud tg connection-approve|ca GATEWAY_ID CONNECTION_ID [-h, --help]
 #### Command options
 {: #connection-approve-options}
 
-- `GATEWAY_ID`
-ID of the gateway the connection is on.
+`GATEWAY_ID`
+:   ID of the gateway the connection is on.
 
-- `CONNECTION_ID`
-ID of the connection you are approving.
+`CONNECTION_ID`
+:   ID of the connection you are approving.
 
 `--help | -h`
 :   Optional: Get help on this command.
@@ -600,11 +600,11 @@ ibmcloud tg connection-reject|cr GATEWAY_ID CONNECTION_ID [-h, --help]
 #### Command options
 {: #connection-reject-options}
 
-- `GATEWAY_ID`
-ID of the gateway the connection is on.
+`GATEWAY_ID`
+:   ID of the gateway the connection is on.
 
-- `CONNECTION_ID`
-ID of the connection you are rejecting.
+`CONNECTION_ID`
+:   ID of the connection you are rejecting.
 
 `--help | -h`
 :   Optional: Get help on this command.
@@ -631,21 +631,20 @@ Delete an existing connection.
 ibmcloud tg connection-delete|cd GATEWAY_ID CONNECTION_ID [-f, --force] [-h, --help]
 ```
 
-
 #### Command options
 {: #connection-delete-options}
 
-- `GATEWAY_ID`
-ID of the gateway of the connection being deleted.
+`GATEWAY_ID`
+:   ID of the gateway of the connection being deleted.
 
-- `CONNECTION_ID`
-ID of the connection being deleted.
+`CONNECTION_ID`
+:   ID of the connection being deleted.
 
-- `--force | -f`
-Optional: Force the delete without confirmation.
+`--force | -f`
+:   Optional: Force the delete without confirmation.
 
-- `--help | -h`
-Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #connection-delete-examples}
@@ -674,11 +673,11 @@ ibmcloud tg route-reports|rrs GATEWAY_ID [--output json] [-h, --help]
 #### Command options
 {: #list-routereports-options}
 
-- `GATEWAY_ID`
-ID of the gateway to list route reports for.
+`GATEWAY_ID`
+:   ID of the gateway to list route reports for.
 
 `--output json`
-Optional: Specify if you want the output displayed in JSON format.
+:   Optional: Specify if you want the output displayed in JSON format.
 
 `--help | -h`
 :   Optional: Get help on this command.
@@ -714,14 +713,14 @@ ibmcloud tg route-report|rr GATEWAY_ID REPORT_ID [--output json] [-h, --help]
 #### Command options
 {: #routereport-details-options}
 
-- `GATEWAY_ID`
-ID of the gateway the route report is from.
+`GATEWAY_ID`
+:   ID of the gateway the route report is from.
 
-- `REPORT_ID`
-ID of the route report you want details for.
+`REPORT_ID`
+:   ID of the route report you want details for.
 
 `--output json`
-Optional: Specify if you want the output displayed in JSON format.
+:   Optional: Specify if you want the output displayed in JSON format.
 
 `--help | -h`
 :   Optional: Get help on this command.
@@ -750,11 +749,11 @@ ibmcloud tg route-report-create|rrc GATEWAY_ID [--output json] [-h, --help]
 #### Command options
 {: #routereport-create-options}
 
-- `GATEWAY_ID`
-ID of the gateway the route report is created for.
+`GATEWAY_ID`
+:   ID of the gateway the route report is created for.
 
 `--output json`
-Optional: Specify if you want the output displayed in JSON format.
+:   Optional: Specify if you want the output displayed in JSON format.
 
 `--help | -h`
 :   Optional: Get help on this command.
@@ -783,14 +782,14 @@ ibmcloud tg route-report-delete|rrd GATEWAY_ID REPORT_ID [-f, --force] [-h, --he
 #### Command options
 {: #routereport-delete-options}
 
-- `GATEWAY_ID`
-ID of the gateway the report is for.
+`GATEWAY_ID`
+:   ID of the gateway the report is for.
 
-- `REPORT_ID`
-ID of the report you want to delete.
+`REPORT_ID`
+:   ID of the report you want to delete.
 
-- `--force | -f`
-Optional: Force the delete without confirmation.
+`--force | -f`
+:   Optional: Force the delete without confirmation.
 
 `--help | -h`
 :   Optional: Get help on this command.
@@ -819,29 +818,29 @@ ibmcloud tg prefix-filter-create GATEWAY_ID CONNECTION_ID --prefix PREFIX --acti
 #### Command options
 {: #prefix-filter-create-options}
 
-- `GATEWAY_ID`
-ID of the gateway the prefix filter is being applied to.
+`GATEWAY_ID`
+:   ID of the gateway the prefix filter is being applied to.
 
-- `CONNECTION_ID`
-ID of the connection the prefix filter is being applied to.
+`CONNECTION_ID`
+:   ID of the connection the prefix filter is being applied to.
 
-- `--prefix`
-Network prefix that the filter will be applied to.
+`--prefix`
+:   Network prefix that the filter will be applied to.
 
-- `--action`
-Action to take on the specified prefix ( permit | deny ).
+`--action`
+:   Action to take on the specified prefix ( permit | deny ).
 
-- `--le`
-Optional: Prefix filter will be applied to subnet mask less than or equal to this value.
+`--le`
+:   Optional: Prefix filter will be applied to subnet mask less than or equal to this value.
 
 `--ge`
-Optional: Prefix filter will be applied to subnet mask greater than or equal to this value.
+:   Optional: Prefix filter will be applied to subnet mask greater than or equal to this value.
 
-- `--before`
-Optional: Identifier of the prefix filter this filter should be applied before.  If empty, this filter is applied last.
+`--before`
+:   Optional: Identifier of the prefix filter this filter should be applied before.  If empty, this filter is applied last.
 
-- `--output`
-Optional: Specify output format; Only 'json' is supported.
+`--output`
+:   Optional: Specify output format; Only 'json' is supported.
 
 ##### Examples
 {: #prefix-filter-create-examples}
@@ -867,17 +866,17 @@ ibmcloud tg prefix-filter-delete GATEWAY_ID CONNECTION_ID FILTER_ID [-f, --force
 #### Command options
 {: #prefix-filter-delete-options}
 
-- `GATEWAY_ID`
-ID of the gateway the prefix filter will be deleted from.
+`GATEWAY_ID`
+:   ID of the gateway the prefix filter will be deleted from.
 
-- `CONNECTION_ID`
-ID of the connection the prefix filter will be deleted from.
+`CONNECTION_ID`
+:   ID of the connection the prefix filter will be deleted from.
 
-- `FILTER_ID`
-ID of the prefix filter being deleted.
+`FILTER_ID`
+:   ID of the prefix filter being deleted.
 
-- `--force, -f`
-Force the deletion operation without confirmation.
+`--force, -f`
+:   Force the deletion operation without confirmation.
 
 ##### Examples
 {: #prefix-filter-delete-examples}
