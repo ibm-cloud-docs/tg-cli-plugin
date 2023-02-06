@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-30"
+  years: 2020, 2023
+lastupdated: "2023-02-06"
 
 keywords: command line interface, commands, CLI
 
@@ -33,13 +33,12 @@ Follow these instructions to use the Transit Gateway Command Line Interface, whi
    ```
    {: pre}
 
-**Note**: If you are going to use the CLI with a Virtual Private Endpoint (VPE), you must set the following variable:
+If you are going to use the CLI with a Virtual Private Endpoint (VPE), you must set the following variable:
 
 ```bash
 export IBMCLOUD_TG_API_ENDPOINT=private.transit.cloud.ibm.com
 ```
 For more information, see [Integrating with Virtual Private Endpoint for VPC](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway).
-
 
 ## ibmcloud plugin show tg
 {: #show-plugin-info}
@@ -81,9 +80,11 @@ ibmcloud tg locations|locs [--output json] [-h, --help]
 #### Command options
 {: #list-locations-options}
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+`--output json`
+:   Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 ---
 
@@ -99,11 +100,14 @@ ibmcloud tg location|loc NAME [--output json] [-h, --help]
 #### Command options
 {: #location-detail-options}
 
-- **NAME**: Name of the location you want details for.
+`NAME`
+:   Name of the location you want details for.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+`--output json`
+:   Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #location-detail-examples}
@@ -134,9 +138,11 @@ ibmcloud tg gateways|gws [--output json] [-h, --help]
 #### Command options
 {: #list-gateways-options}
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+`--output json`
+Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 Other commands will require a gateway ID, save the ID as an environment variable so you can use it later, for example:
 
@@ -159,11 +165,14 @@ ibmcloud tg gateway|gw GATEWAY_ID [--output json] [-h, --help]
 #### Command options
 {: #gateway-details-options}
 
-- **GATEWAY_ID**: ID of the gateway you want details for.
+`GATEWAY_ID`
+:   ID of the gateway you want details for.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+`--output json`
+Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #gateway-details-examples}
@@ -189,17 +198,23 @@ ibmcloud tg gateway-create|gwc --name NAME --location LOCATION [--routing ROUTIN
 #### Command options
 {: #gateway-create-options}
 
-- **--name**: Name for the new gateway.
+`--name`
+:   Name for the new gateway.
 
-- **--location**: Location of the gateway (see possible values by using : `ibmcloud tg locations`)
+`--location`
+:   Location of the gateway (see possible values by using : `ibmcloud tg locations`)
 
-- **--routing**: Gateway routing of resources (global | local). Select 'global' to connect resources across regions. Default value is 'local'.
+`--routing`
+:   Gateway routing of resources (global | local). Select 'global' to connect resources across regions. Default value is 'local'.
 
-- **--resource-group-id**: Optional: Gateway resource group ID. Uses default resource group, if not specified.
+`--resource-group-id`
+:   Optional: Gateway resource group ID. Uses default resource group, if not specified.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.  
+`--output json`
+:   Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #gateway-create-examples}
@@ -225,15 +240,20 @@ ibmcloud tg gateway-update|gwu GATEWAY_ID [--name NAME] [--routing ROUTING] [--o
 #### Command options
 {: #gateway-update-options}
 
-- **GATEWAY_ID**: ID of the gateway you want to update.
+`GATEWAY_ID`
+:   ID of the gateway you want to update.
 
-- **--name**: Optional: New name of the gateway.
+`--name`
+:   Optional: New name of the gateway.
 
-- **--routing**: Optional: Gateway routing of resources (global | local). Select global to connect resources across regions. Changing routing from global to local requires all existing connections to be local.
+`--routing`
+:   Optional: Gateway routing of resources (global | local). Select global to connect resources across regions. Changing routing from global to local requires all existing connections to be local.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.  
+`--output json`
+:   Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #gateway-update-examples}
@@ -260,11 +280,14 @@ ibmcloud tg gateway-delete|gwd GATEWAY_ID [-f, --force] [-h, --help]
 #### Command options
 {: #gateway-delete-options}
 
-- **GATEWAY_ID**: ID of the gateway you want to delete.
+`GATEWAY_ID`
+:   ID of the gateway you want to delete.
 
-- **--force | -f**: Optional: Force the delete without confirmation.
+`--force | -f`
+:   Optional: Force the delete without confirmation.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #gateway-delete-examples}
@@ -297,11 +320,14 @@ ibmcloud tg connections|cs GATEWAY_ID [--output json] [-h, --help]
 #### Command options
 {: #list-connections-options}
 
-- **GATEWAY_ID**: ID of the gateway you want connections for.
+`GATEWAY_ID`
+:   ID of the gateway you want connections for.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+`--output json`
+:   Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #list-connections-examples}
@@ -335,13 +361,17 @@ ibmcloud tg connection|c GATEWAY_ID CONNECTION_ID [--output json] [-h, --help]
 #### Command options
 {: #connection-details-options}
 
-- **GATEWAY_ID**: ID of the gateway the connection is on.
+`GATEWAY_ID`
+:   ID of the gateway the connection is on.
 
-- **CONNECTION_ID**: ID of the connection you want details for.
+`CONNECTION_ID`
+:   ID of the connection you want details for.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+`--output json`
+:   Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #connection-details-examples}
@@ -370,25 +400,33 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | di
 #### Command options
 {: #connection-create-options}
 
-- **GATEWAY_ID**: ID of the gateway that the new connection will be on.
+`GATEWAY_ID`
+:   ID of the gateway that the new connection will be on.
 
-- **--name**: Name for the new connection.
+`--name`
+:   Name for the new connection.
 
-- **--network-type**: Network type of the connection. Values are `vpc`, `directlink`, or `classic`.
+`--network-type`
+:   Network type of the connection. Values are `vpc`, `directlink`, or `classic`.
 
-- **--network-id**: ID of the network connection. For classic, do not set a value. For VPC and directlink, use the CRN. To find the CRN of a VPC:
+`--network-id`
+:   ID of the network connection. For classic, do not set a value. For VPC and directlink, use the CRN. To find the CRN of a VPC:
 
    ```sh
    ibmcloud is vpc VPC_ID --json
    ```
 
-- **--network-account-id**: ID of the IBM Cloud account to use for creating a classic connection. Only used with 'classic' type, when the account of connection is different than the gateway's account.
+`--network-account-id`
+:   ID of the IBM Cloud account to use for creating a classic connection. Only used with 'classic' type, when the account of connection is different than the gateway's account.
 
-- **--default-prefix-filter**: Optional: Default prefix filter of the connection (permit | deny).
+`--default-prefix-filter`
+:   Optional: Default prefix filter of the connection (permit | deny).
 
-- **--output json**: Optional: Specify if you want the output to display in JSON format.
+`--output json`
+:   Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #connection-create-example}
@@ -422,33 +460,44 @@ ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE GATEW
 #### Command options
 {: #connection-create-gre-options}
 
-- **GATEWAY_ID**: ID of the gateway where the new connection is bound.
+`GATEWAY_ID`
+ID of the gateway where the new connection is bound.
 
-- **--name**: Name of the new connection.
+`--name`
+:   Name of the new connection.
 
-- **--zone**: Availability zone for the GRE tunnel. Example: `us-south-1`
+`--zone`
+:   Availability zone for the GRE tunnel. Example: `us-south-1`
 
-- **--local-gateway-ip**: Local gateway IP address for the GRE tunnel connection.
+`--local-gateway-ip`
+:   Local gateway IP address for the GRE tunnel connection.
 
-- **--local-tunnel-ip**: Local tunnel IP address for the GRE tunnel connection.
+`--local-tunnel-ip`
+:   Local tunnel IP address for the GRE tunnel connection.
 
-- **--remote-gateway-ip**: Remote gateway IP address for the GRE tunnel connection.
+`--remote-gateway-ip`
+:   Remote gateway IP address for the GRE tunnel connection.
 
-- **--remote-tunnel-ip**: Remote tunnel IP address for the GRE tunnel connection.
+`--remote-tunnel-ip`
+:    Optional: ID of the classic network connection that will be the underlay for the GRE tunnel. For use only with the `gre_tunnel` network type.
 
-- **--base-connection-id**: Optional: ID of the classic network connection that will be the underlay for the GRE tunnel. For use only with the `gre_tunnel` network type.
+`--base-network-type`
+:   Network type of the base connection (`classic`). For use only with the `unbound_gre_tunnel` network type.
 
-- **--base-network-type**: Network type of the base connection (`classic`). For use only with the `unbound_gre_tunnel` network type.
+`--network-type`
+:   Optional: Network type of the GRE connection. Values are `gre_tunnel` or `unbound_gre_tunnel`. The default value is `gre_tunnel`.
 
-- **--network-type**: Optional: Network type of the GRE connection. Values are `gre_tunnel` or `unbound_gre_tunnel`. The default value is `gre_tunnel`.
+`--network-account-id`
+:   Optional: ID of account to connect to a classic connection. Use only with `classic` type when the account of the connection is different than gateway's account.
 
-- **--network-account-id**: Optional: ID of account to connect to a classic connection. Use only with `classic` type when the account of the connection is different than gateway's account.
+`--remote-bgp-asn`
+:   Optional: If the remote BGP ASN is not specified, one is generated.
 
-- **--remote-bgp-asn**: Optional: If the remote BGP ASN is not specified, one is generated.
+`--output json`
+:   Optional: Specify if you want the output displayed in JSON format.
 
-- **--output json**: Optional: Shows the output in JSON format.
-
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Examples
 {: #connection-create-gre-examples}
@@ -471,21 +520,26 @@ Update properties on an existing connection.
 ibmcloud tg connection-update|cu GATEWAY_ID CONNECTION_ID --name NAME [--output json] [-h, --help]
 ```
 
-
 #### Command options
 {: #connection-update-options}
 
-- **GATEWAY_ID**: ID of the gateway the connection being updated is on.
+`GATEWAY_ID`
+:   ID of the gateway the connection being updated is on.
 
-- **CONNECTION_ID**: ID of the connection to update.
+`CONNECTION_ID`
+:   ID of the connection to update.
 
-- **--name**: New name of the connection.
+`--name`
+:   New name of the connection.
 
-- **--default-prefix-filter**: Optional: Default prefix filter of the connection (permit | deny).
+`--default-prefix-filter`
+:   Optional: Default prefix filter of the connection (permit | deny).
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+`--output json`
+:   Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #connection-update-examples}
@@ -512,11 +566,14 @@ ibmcloud tg connection-approve|ca GATEWAY_ID CONNECTION_ID [-h, --help]
 #### Command options
 {: #connection-approve-options}
 
-- **GATEWAY_ID**: ID of the gateway the connection is on.
+- `GATEWAY_ID`
+ID of the gateway the connection is on.
 
-- **CONNECTION_ID**: ID of the connection you are approving.
+- `CONNECTION_ID`
+ID of the connection you are approving.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #connection-approve-examples}
@@ -543,11 +600,14 @@ ibmcloud tg connection-reject|cr GATEWAY_ID CONNECTION_ID [-h, --help]
 #### Command options
 {: #connection-reject-options}
 
-- **GATEWAY_ID**: ID of the gateway the connection is on.
+- `GATEWAY_ID`
+ID of the gateway the connection is on.
 
-- **CONNECTION_ID**: ID of the connection you are rejecting.
+- `CONNECTION_ID`
+ID of the connection you are rejecting.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #connection-reject-examples}
@@ -575,13 +635,17 @@ ibmcloud tg connection-delete|cd GATEWAY_ID CONNECTION_ID [-f, --force] [-h, --h
 #### Command options
 {: #connection-delete-options}
 
-- **GATEWAY_ID**: ID of the gateway of the connection being deleted.
+- `GATEWAY_ID`
+ID of the gateway of the connection being deleted.
 
-- **CONNECTION_ID**: ID of the connection being deleted.
+- `CONNECTION_ID`
+ID of the connection being deleted.
 
-- **--force | -f**: Optional: Force the delete without confirmation.
+- `--force | -f`
+Optional: Force the delete without confirmation.
 
-- **--help | -h**: Optional: Get help on this command.
+- `--help | -h`
+Optional: Get help on this command.
 
 #### Example
 {: #connection-delete-examples}
@@ -610,11 +674,14 @@ ibmcloud tg route-reports|rrs GATEWAY_ID [--output json] [-h, --help]
 #### Command options
 {: #list-routereports-options}
 
-- **GATEWAY_ID**: ID of the gateway to list route reports for.
+- `GATEWAY_ID`
+ID of the gateway to list route reports for.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+`--output json`
+Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #list-routereports-examples}
@@ -647,13 +714,17 @@ ibmcloud tg route-report|rr GATEWAY_ID REPORT_ID [--output json] [-h, --help]
 #### Command options
 {: #routereport-details-options}
 
-- **GATEWAY_ID**: ID of the gateway the route report is from.
+- `GATEWAY_ID`
+ID of the gateway the route report is from.
 
-- **REPORT_ID**: ID of the route report you want details for.
+- `REPORT_ID`
+ID of the route report you want details for.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.
+`--output json`
+Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #routereport-details-examples}
@@ -679,11 +750,14 @@ ibmcloud tg route-report-create|rrc GATEWAY_ID [--output json] [-h, --help]
 #### Command options
 {: #routereport-create-options}
 
-- **GATEWAY_ID**: ID of the gateway the route report is created for.
+- `GATEWAY_ID`
+ID of the gateway the route report is created for.
 
-- **--output json**: Optional: Specify if you want the output displayed in JSON format.  
+`--output json`
+Optional: Specify if you want the output displayed in JSON format.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #routereport-create-examples}
@@ -709,13 +783,17 @@ ibmcloud tg route-report-delete|rrd GATEWAY_ID REPORT_ID [-f, --force] [-h, --he
 #### Command options
 {: #routereport-delete-options}
 
-- **GATEWAY_ID**: ID of the gateway the report is for.
+- `GATEWAY_ID`
+ID of the gateway the report is for.
 
-- **REPORT_ID**: ID of the report you want to delete.
+- `REPORT_ID`
+ID of the report you want to delete.
 
-- **--force | -f**: Optional: Force the delete without confirmation.
+- `--force | -f`
+Optional: Force the delete without confirmation.
 
-- **--help | -h**: Optional: Get help on this command.
+`--help | -h`
+:   Optional: Get help on this command.
 
 #### Example
 {: #routereport-delete-examples}
@@ -741,21 +819,29 @@ ibmcloud tg prefix-filter-create GATEWAY_ID CONNECTION_ID --prefix PREFIX --acti
 #### Command options
 {: #prefix-filter-create-options}
 
-- **GATEWAY_ID**: ID of the gateway the prefix filter is being applied to.
+- `GATEWAY_ID`
+ID of the gateway the prefix filter is being applied to.
 
-- **CONNECTION_ID**: ID of the connection the prefix filter is being applied to.
+- `CONNECTION_ID`
+ID of the connection the prefix filter is being applied to.
 
-- **--prefix**: Network prefix that the filter will be applied to.
+- `--prefix`
+Network prefix that the filter will be applied to.
 
-- **--action**: Action to take on the specified prefix ( permit | deny ).
+- `--action`
+Action to take on the specified prefix ( permit | deny ).
 
-- **--le**: Optional: Prefix filter will be applied to subnet mask less than or equal to this value.
+- `--le`
+Optional: Prefix filter will be applied to subnet mask less than or equal to this value.
 
-- **--ge**: Optional: Prefix filter will be applied to subnet mask greater than or equal to this value.
+`--ge`
+Optional: Prefix filter will be applied to subnet mask greater than or equal to this value.
 
-- **--before**: Optional: Identifier of the prefix filter this filter should be applied before.  If empty, this filter is applied last.
+- `--before`
+Optional: Identifier of the prefix filter this filter should be applied before.  If empty, this filter is applied last.
 
-- **--output**: Optional: Specify output format; Only 'json' is supported.
+- `--output`
+Optional: Specify output format; Only 'json' is supported.
 
 ##### Examples
 {: #prefix-filter-create-examples}
@@ -781,13 +867,17 @@ ibmcloud tg prefix-filter-delete GATEWAY_ID CONNECTION_ID FILTER_ID [-f, --force
 #### Command options
 {: #prefix-filter-delete-options}
 
-- **GATEWAY_ID**: ID of the gateway the prefix filter will be deleted from.
+- `GATEWAY_ID`
+ID of the gateway the prefix filter will be deleted from.
 
-- **CONNECTION_ID**: ID of the connection the prefix filter will be deleted from.
+- `CONNECTION_ID`
+ID of the connection the prefix filter will be deleted from.
 
-- **FILTER_ID**: ID of the prefix filter being deleted.
+- `FILTER_ID`
+ID of the prefix filter being deleted.
 
-- **--force, -f**: Force the deletion operation without confirmation.
+- `--force, -f`
+Force the deletion operation without confirmation.
 
 ##### Examples
 {: #prefix-filter-delete-examples}
