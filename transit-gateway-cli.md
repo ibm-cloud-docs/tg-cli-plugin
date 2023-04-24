@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-02-06"
+lastupdated: "2023-04-24"
 
 keywords: command line interface, commands, CLI
 
@@ -15,7 +15,7 @@ subcollection: transit-gateway
 # Transit Gateway CLI
 {: #transit-gateway-cli}
 
-The {{site.data.keyword.cloud}} Transit Gateway command-line interface (CLI) provides an additional interface into the Transit Gateway service. You can use the CLI to create and manage gateways and connections and list available locations for gateways.   
+The {{site.data.keyword.cloud}} Transit Gateway command-line interface (CLI) provides an additional interface into the Transit Gateway service. You can use the CLI to create and manage gateways and connections and list available locations for gateways.
 {: shortdesc}
 
 ## Before you begin
@@ -205,7 +205,7 @@ ibmcloud tg gateway-create|gwc --name NAME --location LOCATION [--routing ROUTIN
 :   Location of the gateway (see possible values by using `ibmcloud tg locations`)
 
 `--routing`
-:   Gateway routing of resources (global | local). Select 'global' to connect resources across regions. Default value is 'local'.
+:   Gateway routing of resources (`global` | `local`). Select `global` to connect resources across regions. Default value is `local`.
 
 `--resource-group-id`
 :   Optional: Gateway resource group ID. Uses default resource group, if not specified.
@@ -219,7 +219,7 @@ ibmcloud tg gateway-create|gwc --name NAME --location LOCATION [--routing ROUTIN
 #### Example
 {: #gateway-create-examples}
 
-Create gateway named 'myGateway' in `us-south` with `local` routing and using default resource group.
+Create gateway named `myGateway` in `us-south` with `local` routing and using default resource group.
 
 ```sh
 ibmcloud tg gwc --name myGateway --location us-south
@@ -247,7 +247,7 @@ ibmcloud tg gateway-update|gwu GATEWAY_ID [--name NAME] [--routing ROUTING] [--o
 :   Optional: New name of the gateway.
 
 `--routing`
-:   Optional: Gateway routing of resources (global | local). Select global to connect resources across regions. Changing routing from global to local requires all existing connections to be local.
+:   Optional: Gateway routing of resources (`global` | `local`). Select global to connect resources across regions. Changing routing from `global` to `local` requires all existing connections to be `local`.
 
 `--output json`
 :   Optional: Specify if you want the output displayed in JSON format.
@@ -390,11 +390,8 @@ ibmcloud tg c $gateway $connection
 
 Create a connection on the given transit gateway.
 
-The `power-virtual-server` value is limited to internal use only.
-{: important}
-
 ```sh
-ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | directlink | classic] --network-id NETWORK_ID --network-account-id NETWORK-ACCOUNT-ID [--output json] [-h, --help]
+ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type NETWORK_TYPE --network-id NETWORK_ID --network-account-id NETWORK_ACCOUNT_ID [--output json] [-h, --help]
 ```
 
 #### Command options
@@ -407,20 +404,20 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type [vpc | di
 :   Name for the new connection.
 
 `--network-type`
-:   Network type of the connection. Values are `vpc`, `directlink`, or `classic`.
+:   Network type of the connection. Values are `classic`, `vpc`, or `directlink`.
 
 `--network-id`
-:   ID of the network connection. For classic, do not set a value. For VPC and directlink, use the CRN. To find the CRN of a VPC:
+:   ID of the network connection. For `classic`, do not set a value. Use the CRN for all other network types. To find the CRN of a VPC:
 
    ```sh
    ibmcloud is vpc VPC_ID --json
    ```
 
 `--network-account-id`
-:   ID of the IBM Cloud account to use for creating a classic connection. Only used with 'classic' type, when the account of connection is different than the gateway's account.
+:   ID of the IBM Cloud account to use for creating a classic connection. Only used with `classic` type, when the account of connection is different than the gateway's account.
 
 `--default-prefix-filter`
-:   Optional: Default prefix filter of the connection (permit | deny).
+:   Optional: Default prefix filter of the connection (`permit` | `deny`).
 
 `--output json`
 :   Optional: Specify if you want the output displayed in JSON format.
@@ -453,7 +450,7 @@ ibmcloud tg cc $gateway --name classic-conn --network-type classic
 Create a Generic Routing Encapsulation (GRE) tunnel or unbound GRE connection on the given transit gateway.
 
 ```sh
-ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE GATEWAY_ID --name NAME --zone ZONE --local-gateway-ip LOCAL_GATEWAY_IP --local-tunnel-ip LOCAL_TUNNEL_IP --remote-gateway-ip REMOTE_GATEWAY_IP --remote-tunnel-ip REMOTE_TUNNEL_IP [--base-connection-id BASE_CONNECTION_ID] [--base-network-type BASE_NETWORK_TYPE] [--network-type NETWORK-TYPE] [--network-account-id NETWORK_ACCOUNT_ID] [--remote-bgp-asn REMOTE_BGP_ASN] [--default-prefix-filter DEFAULT_PREFIX_FILTER] [--output json]
+ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE GATEWAY_ID --name NAME --zone ZONE --local-gateway-ip LOCAL_GATEWAY_IP --local-tunnel-ip LOCAL_TUNNEL_IP --remote-gateway-ip REMOTE_GATEWAY_IP --remote-tunnel-ip REMOTE_TUNNEL_IP [--base-connection-id BASE_CONNECTION_ID] [--base-network-type BASE_NETWORK_TYPE] [--network-type NETWORK_TYPE] [--network-account-id NETWORK_ACCOUNT_ID] [--remote-bgp-asn REMOTE_BGP_ASN] [--default-prefix-filter DEFAULT_PREFIX_FILTER] [--output json]
 ```
 {: pre}
 
@@ -533,7 +530,7 @@ ibmcloud tg connection-update|cu GATEWAY_ID CONNECTION_ID --name NAME [--output 
 :   New name of the connection.
 
 `--default-prefix-filter`
-:   Optional: Default prefix filter of the connection (permit | deny).
+:   Optional: Default prefix filter of the connection (`permit` | `deny`).
 
 `--output json`
 :   Optional: Specify if you want the output displayed in JSON format.
@@ -828,7 +825,7 @@ ibmcloud tg prefix-filter-create GATEWAY_ID CONNECTION_ID --prefix PREFIX --acti
 :   Network prefix that the filter will be applied to.
 
 `--action`
-:   Action to take on the specified prefix ( permit | deny ).
+:   Action to take on the specified prefix (`permit` | `deny`).
 
 `--le`
 :   Optional: Prefix filter will be applied to subnet mask less than or equal to this value.
@@ -840,7 +837,7 @@ ibmcloud tg prefix-filter-create GATEWAY_ID CONNECTION_ID --prefix PREFIX --acti
 :   Optional: Identifier of the prefix filter this filter should be applied before.  If empty, this filter is applied last.
 
 `--output`
-:   Optional: Specify output format; Only 'json' is supported.
+:   Optional: Specify output format; Only `json` is supported.
 
 ##### Examples
 {: #prefix-filter-create-examples}
