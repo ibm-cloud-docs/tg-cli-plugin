@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-24"
+lastupdated: "2023-06-24"
 
 keywords: command line interface, commands, CLI
 
@@ -388,7 +388,7 @@ ibmcloud tg c $gateway $connection
 ### `ibmcloud tg connection-create`
 {: #connection-create}
 
-Create a connection on the given transit gateway.
+Create a connection on the given transit gateway. 
 
 ```sh
 ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type NETWORK_TYPE --network-id NETWORK_ID --network-account-id NETWORK_ACCOUNT_ID [--output json] [-h, --help]
@@ -404,7 +404,7 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type NETWORK_T
 :   Name for the new connection.
 
 `--network-type`
-:   Network type of the connection. Values are `classic`, `vpc`, or `directlink`.
+:   Network type of the connection. Values are `classic`, `vpc`, `directlink`, or `power_virtual_server`.
 
 `--network-id`
 :   ID of the network connection. For `classic`, do not set a value. Use the CRN for all other network types. For example, to find the CRN of a VPC:
