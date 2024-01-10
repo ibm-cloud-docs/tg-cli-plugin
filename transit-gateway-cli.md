@@ -388,7 +388,7 @@ ibmcloud tg c $gateway $connection
 ### `ibmcloud tg connection-create`
 {: #connection-create}
 
-Create a connection on the given transit gateway. 
+Create a connection on the given transit gateway.
 
 ```sh
 ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type NETWORK_TYPE --network-id NETWORK_ID --network-account-id NETWORK_ACCOUNT_ID [--output json] [-h, --help]
@@ -450,7 +450,7 @@ ibmcloud tg cc $gateway --name classic-conn --network-type classic
 Create a Generic Routing Encapsulation (GRE) tunnel or unbound GRE connection on the given transit gateway.
 
 ```sh
-ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE GATEWAY_ID --name NAME --zone ZONE --local-gateway-ip LOCAL_GATEWAY_IP --local-tunnel-ip LOCAL_TUNNEL_IP --remote-gateway-ip REMOTE_GATEWAY_IP --remote-tunnel-ip REMOTE_TUNNEL_IP [--base-connection-id BASE_CONNECTION_ID] [--base-network-type BASE_NETWORK_TYPE] [--network-type NETWORK_TYPE] [--network-account-id NETWORK_ACCOUNT_ID] [--remote-bgp-asn REMOTE_BGP_ASN] [--default-prefix-filter DEFAULT_PREFIX_FILTER] [--output json]
+ibmcloud tg connection-create-gre|ccgre GATEWAY_ID --name NAME --zone ZONE --local-gateway-ip LOCAL_GATEWAY_IP --local-tunnel-ip LOCAL_TUNNEL_IP --remote-gateway-ip REMOTE_GATEWAY_IP --remote-tunnel-ip REMOTE_TUNNEL_IP [--base-connection-id BASE_CONNECTION_ID] [--base-network-type BASE_NETWORK_TYPE] [--network-type NETWORK_TYPE] [--network-account-id NETWORK_ACCOUNT_ID] [--remote-bgp-asn REMOTE_BGP_ASN] [--default-prefix-filter DEFAULT_PREFIX_FILTER] [--output json]
 ```
 {: pre}
 
@@ -476,6 +476,9 @@ ID of the gateway where the new connection is bound.
 :   Remote gateway IP address for the GRE tunnel connection.
 
 `--remote-tunnel-ip`
+:   Remote tunnel IP address for the GRE tunnel connection.
+
+`--base-connection-id`
 :    Optional: ID of the classic network connection that will be the underlay for the GRE tunnel. For use only with the `gre_tunnel` network type.
 
 `--base-network-type`
