@@ -38,7 +38,6 @@ If you are going to use the CLI with a Virtual Private Endpoint (VPE), you must 
 ```bash
 export IBMCLOUD_TG_API_ENDPOINT=private.transit.cloud.ibm.com
 ```
-For more information, see [Integrating with Virtual Private Endpoint for VPC](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway).
 
 ## `ibmcloud plugin show tg`
 {: #show-plugin-info}
