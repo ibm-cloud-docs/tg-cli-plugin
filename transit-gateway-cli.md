@@ -6,7 +6,7 @@ lastupdated: "2024-01-10"
 
 keywords: command line interface, commands, CLI
 
-subcollection: transit-gateway
+subcollection: transit-gateway-cli
 
 ---
 
