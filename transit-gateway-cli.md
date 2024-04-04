@@ -312,7 +312,7 @@ This section provides information about CLI commands for connection functions.
 List connections on the transit gateway.
 
 ```sh
-ibmcloud tg connections|cs GATEWAY_ID [--limit LIMIT] [--output json] [-h, --help]
+ibmcloud tg connections|cs GATEWAY_ID [--all-pages] [--limit NUMERIC_VALUE] [--output json] [-h, --help]
 ```
 
 #### Command options
@@ -320,6 +320,9 @@ ibmcloud tg connections|cs GATEWAY_ID [--limit LIMIT] [--output json] [-h, --hel
 
 `GATEWAY_ID`
 :   ID of the gateway you want connections for.
+
+`--all-pages`
+:   Lists all connections regardless of whether a `--limit` size is specified.
 
 `--limit` (Select availability at this time)
 :   The maximum number of resources to return per page. The default limit is `100`. Possible values: `1` ≤ value ≤ `500`
