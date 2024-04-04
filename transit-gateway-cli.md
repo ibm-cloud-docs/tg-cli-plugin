@@ -321,7 +321,7 @@ ibmcloud tg connections|cs GATEWAY_ID [--all-pages] [--limit NUMERIC_VALUE] [--o
 `GATEWAY_ID`
 :   ID of the gateway you want connections for.
 
-`--all-pages`
+`--all-pages` (Select availability at this time)
 :   Lists all connections regardless of whether a `--limit` size is specified.
 
 `--limit` (Select availability at this time)
