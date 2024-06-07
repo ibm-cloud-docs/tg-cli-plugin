@@ -1,4 +1,3 @@
-
 toc:
   properties:
     subcollection: tg-cli-plugin
@@ -9,7 +8,6 @@ toc:
     product-page: https://www.ibm.com/products?q=IBM%20Cloud%20Transit%20Gateway
     path: tg-cli-plugin
     label: Transit Gateway CLI
-
   entries:
   - navgroup:
       id: reference
