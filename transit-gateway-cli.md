@@ -539,7 +539,7 @@ ibmcloud tg connection-gre-create|cgrec GATEWAY_ID --name NAME --zone ZONE --loc
 {: #connection-gre-create-options}
 
 `GATEWAY_ID`
-ID of the gateway where the new connection is bound.
+:   ID of the gateway where the new connection is bound.
 
 `--name`
 :   Name of the new GRE connection.
