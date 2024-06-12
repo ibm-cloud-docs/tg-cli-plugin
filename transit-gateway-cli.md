@@ -356,10 +356,8 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type NETWORK_T
    ibmcloud is vpc VPC_ID --json
    ```
 
-`--network-account-id` DANA
+`--network-account-id` 
 :   ID of the IBM Cloud account to use for creating a classic connection. Only used with `classic` type, when the account of the connection is different than the gateway's account.
-
-The ID of the account which owns the network that is being connected. Generally, this option is used only if the network is in a different account than the gateway. This field is required for type `unbound_gre_tunnel` when the `base_network_type` is `classic` or `network_typ`e is `redundant_gre` and the GRE tunnel is in a different account than the gateway.
 
 `--default-prefix-filter`
 :   Optional: Default prefix filter of the connection (`permit` | `deny`).
@@ -449,8 +447,8 @@ ID of the gateway where the new connection is bound.
 `--zone`
 :   Availability zone for the GRE tunnel. Example: `us-south-1`
 
-`--local-gateway-ip` DANA
-:   Local gateway IP address for the GRE tunnel connection. This field is required for network type `gre_tunnel`, `unbound_gre_tunnel` and `redundant_gre` connections. This field is required to be unspecified for network type `classic`, `directlink`, `vpc`, and `power_virtual_server` connections.
+`--local-gateway-ip` 
+:   Local gateway IP address for the GRE tunnel connection. 
 
 `--local-tunnel-ip`
 :   Local tunnel IP address for the GRE tunnel connection.
@@ -465,16 +463,16 @@ ID of the gateway where the new connection is bound.
 :    Optional: ID of the classic network connection that is the underlay for the GRE tunnel. This option is for use only with the `gre_tunnel` network type.
 
 `--base-network-type`
-:   Network type of the base connection (`classic` or `vpc`). This option is for use only with the `redundant_gre_tunnel` network type.
+:   Network type of the base connection (`classic). 
 
-`--network-type` DANA
-:   Optional: Network type of the GRE connection. Values are `gre_tunnel` or `redundant_gre_tunnel`. The default value is `gre_tunnel`.
+`--network-type`  
+:   Optional: Network type of the GRE connection. The default value is `gre_tunnel`.
 
 `--network-account-id`
 :   Optional: ID of account to connect to a classic connection. Use only with `classic` type when the account of the connection is different than gateway's account.
 
-`--remote-bgp-asn` DANA
-:   Optional: If the remote BGP ASN is not specified, one is generated. This field is optional for network type `gre_tunnel`, `unbound_gre_tunnel` and `redundant_gre` connections.
+`--remote-bgp-asn` 
+:   Optional: If the remote BGP ASN is not specified, one is generated.
 
 `--output json`
 :   Optional: Specify whether you want the output displayed in JSON format.
@@ -549,7 +547,7 @@ ibmcloud tg connection-gre-create|cgrec GATEWAY_ID --name NAME --zone ZONE --loc
 `--zone`
 :   Availability zone for the GRE tunnel. Example: `us-south-1`
 
-`--local-gateway-ip` DANA
+`--local-gateway-ip` 
 :   Local gateway IP address for the GRE tunnel connection. This field is required for network type `gre_tunnel`, `unbound_gre_tunnel` and `redundant_gre` connections. This field is required to be unspecified for network type `classic`, `directlink`, `vpc`, and `power_virtual_server` connections.
 
 `--local-tunnel-ip`
@@ -565,10 +563,10 @@ ibmcloud tg connection-gre-create|cgrec GATEWAY_ID --name NAME --zone ZONE --loc
 :    Optional: ID of the classic network connection that is the underlay for the GRE tunnel. This option is for use only with the `gre_tunnel` network type.
 
 `--base-network-type`
-:   Network type of the base connection (`classic` or `vpc`). This option is for use only with the `redundant_gre_tunnel` network type.
+:   Optional: Network type of the base connection (`classic`). 
 
-`--network-type` DANA
-:   Optional: Network type of the GRE connection. Values are `gre_tunnel` or `redundant_gre_tunnel`. The default value is `gre_tunnel`.
+`--network-type` 
+:   Optional: Network type of the GRE connection. Values are `gre_tunnel` or `unbound_gre_tunnel`. The default value is `gre_tunnel`.
 
 `--network-account-id`
 :   Optional: ID of account to connect to a classic connection. Use only with `classic` type when the account of the connection is different than gateway's account.
