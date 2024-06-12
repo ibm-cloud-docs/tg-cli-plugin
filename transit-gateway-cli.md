@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-
+lastupdated: "2024-06-14"
 
 keywords: command line interface, commands, CLI
 
@@ -548,7 +548,7 @@ ibmcloud tg connection-gre-create|cgrec GATEWAY_ID --name NAME --zone ZONE --loc
 :   Availability zone for the GRE tunnel. Example: `us-south-1`
 
 `--local-gateway-ip` 
-:   Local gateway IP address for the GRE tunnel connection. This field is required for network type `gre_tunnel`, `unbound_gre_tunnel` and `redundant_gre` connections. This field is required to be unspecified for network type `classic`, `directlink`, `vpc`, and `power_virtual_server` connections.
+:   Local gateway IP address for the GRE tunnel connection. 
 
 `--local-tunnel-ip`
 :   Local tunnel IP address for the GRE tunnel connection.
