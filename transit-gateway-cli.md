@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-12"
 
 keywords: command line interface, commands, CLI
 
@@ -356,7 +356,7 @@ ibmcloud tg connection-create|cc GATEWAY_ID --name NAME --network-type NETWORK_T
    ibmcloud is vpc VPC_ID --json
    ```
 
-`--network-account-id` 
+`--network-account-id`
 :   ID of the IBM Cloud account to use for creating a classic connection. Only used with `classic` type, when the account of the connection is different than the gateway's account.
 
 `--default-prefix-filter`
@@ -423,10 +423,11 @@ ibmcloud tg cd $gateway $connection -f
 
 ---
 
-### `ibmcloud tg connection-create-gre` 
+### `ibmcloud tg connection-create-gre` (Deprecated)
 {: #connection-create-gre}
 
-
+This command is deprecated. Use the [tg-connection-gre-create](/docs/transit-gateway?topic=transit-gateway-transit-gateway-cli#connection-gre-create) command.
+{: deprecated}
 
 Create a Generic Routing Encapsulation (GRE) tunnel connection on the transit gateway.
 
@@ -447,8 +448,8 @@ ID of the gateway where the new connection is bound.
 `--zone`
 :   Availability zone for the GRE tunnel. Example: `us-south-1`
 
-`--local-gateway-ip` 
-:   Local gateway IP address for the GRE tunnel connection. 
+`--local-gateway-ip`
+:   Local gateway IP address for the GRE tunnel connection.
 
 `--local-tunnel-ip`
 :   Local tunnel IP address for the GRE tunnel connection.
@@ -463,15 +464,15 @@ ID of the gateway where the new connection is bound.
 :    Optional: ID of the classic network connection that is the underlay for the GRE tunnel. This option is for use only with the `gre_tunnel` network type.
 
 `--base-network-type`
-:   Network type of the base connection (`classic). 
+:   Network type of the base connection (`classic).
 
-`--network-type`  
+`--network-type`
 :   Optional: Network type of the GRE connection. The default value is `gre_tunnel`.
 
 `--network-account-id`
 :   Optional: ID of account to connect to a classic connection. Use only with `classic` type when the account of the connection is different than gateway's account.
 
-`--remote-bgp-asn` 
+`--remote-bgp-asn`
 :   Optional: If the remote BGP ASN is not specified, one is generated.
 
 `--output json`
@@ -547,8 +548,8 @@ ibmcloud tg connection-gre-create|cgrec GATEWAY_ID --name NAME --zone ZONE --loc
 `--zone`
 :   Availability zone for the GRE tunnel. Example: `us-south-1`
 
-`--local-gateway-ip` 
-:   Local gateway IP address for the GRE tunnel connection. 
+`--local-gateway-ip`
+:   Local gateway IP address for the GRE tunnel connection.
 
 `--local-tunnel-ip`
 :   Local tunnel IP address for the GRE tunnel connection.
@@ -563,9 +564,9 @@ ibmcloud tg connection-gre-create|cgrec GATEWAY_ID --name NAME --zone ZONE --loc
 :    Optional: ID of the classic network connection that is the underlay for the GRE tunnel. This option is for use only with the `gre_tunnel` network type.
 
 `--base-network-type`
-:   Optional: Network type of the base connection (`classic`). 
+:   Optional: Network type of the base connection (`classic`).
 
-`--network-type` 
+`--network-type`
 :   Optional: Network type of the GRE connection. Values are `gre_tunnel` or `unbound_gre_tunnel`. The default value is `gre_tunnel`.
 
 `--network-account-id`
@@ -623,7 +624,109 @@ ibmcloud tg cr $gateway $connection
 ```
 {: pre}
 
+---
 
+### `ibmcloud tg connection-rgre-create`
+{: #connection-create-redundant-gre}
+
+Create a redundant GRE connection on the transit gateway.
+
+You  must use a JSON file as input.
+{: important}
+
+```sh
+ibmcloud tg connection-rgre-create|crgrec JSON_FILE_PATH [--output json]
+```
+{: pre}
+
+#### JSON file
+{: #connection-create-redundant-gre}
+
+```json
+{
+    "gateway_id": "47f11b01-471c-47d0-9e84-550c88c94055",
+    "name": "redundant_gre1",
+    "network_type": "redundant_gre",
+    "base_network_type": "classic",
+    "network_account_id": "28e4d90ac7504be694471ee66e70d0d5",
+    "network_id": "crn:v1:bluemix:public:is:us-south:a/123456::vpc:4727d842-f94f-4a2d-824a-9bc9b02c523b",
+    "tunnels": [
+       {
+          "local_gateway_ip": "192.168.100.1",
+          "local_tunnel_ip": "192.168.129.2",
+          "name": "gre1",
+          "remote_bgp_asn": "65010",
+          "remote_gateway_ip": "10.242.63.12",
+          "remote_tunnel_ip": "192.168.129.1",
+          "zone": {
+             "name": "us-south-1"
+          }
+       }, {
+          "local_gateway_ip": "192.168.101.1",
+          "local_tunnel_ip": "192.168.128.2",
+          "name": "gre2",
+          "remote_bgp_asn": "65010",
+          "remote_gateway_ip": "10.242.63.12",
+          "remote_tunnel_ip": "192.168.128.1",
+          "zone": {
+             "name": "us-south-1"
+          }
+       }
+    ]
+}
+```
+{: pre}
+
+#### Command options
+{: #redundant-command-options}
+
+`gateway_id`
+:   ID of the gateway that the new redundant GRE connection is on.
+
+`name`
+:   Name of the new redundant GRE connection.
+
+`network_type`
+:   Network type of the connection. Value is `redundant_gre`.
+
+`base_network_type`
+The type of network to use. Options are `classic` and `vpc`.
+
+`network_account_id`
+:   ID of the IBM Cloud account to use for a cross-account classic network. Only used with `classic` type, when the account of the connection is different than the gateway's account. This option is not valid for the `vpc` base network type.
+
+`network_id`
+:   The CRN of the VPC network to use. This option is not valid for the `classic` base network type. For example, to find the CRN of a VPC:
+
+   ```sh
+   ibmcloud is vpc VPC_ID --json
+   ```
+`tunnels`
+:   Information for the GRE tunnels.
+
+`local_gateway_ip`
+:   Local gateway IP address for the GRE tunnel connection. This field is required for network type `redundant_gre` connections.
+
+    When using a `vpc` base network type, this IP address must comply with RFC 1918 and not be an IP address within the multicast range of `224.0.0.0` to `239.255.255.255` and cannot be in conflict with any existing networks that are connected to the transit gateway. Also, this IP address cannot be used as the `local-gateway-ip` for another GRE using the same underlay network.
+    {: important}
+
+`local_tunnel_ip`
+:    Local tunnel IP address assigned to the Transit Gateway side of the tunnel. The `local_tunnel_ip` and `remote_tunnel_ip` addresses must be in the same `/30` network. Neither can be the network nor broadcast addresses. This field is required for network type `redundant_gre` connections.
+
+`name`
+:   Name of the GRE tunnel.
+
+`remote_bgp_asn`
+:   Optional: If the remote BGP ASN is not specified, one is generated.
+
+`remote_gateway_ip`
+:   Remote gateway IP address for the GRE tunnel connection.
+
+`remote_tunnel_ip`
+:   Remote tunnel IP address for the GRE tunnel connection.
+
+`zone`
+:   Availability zone for the GRE tunnel. Example: `us-south-1`
 
 ### `ibmcloud tg connection-update`
 {: #connection-update}
@@ -665,7 +768,97 @@ ibmcloud tg cu $gateway $connection --name MyConn2
 ```
 {: pre}
 
+---
 
+### `ibmcloud tg redundant-gre-tunnel-add`
+{: #redundant-gre-tunnel-add}
+
+Add a tunnel to a redundant GRE.
+
+```sh
+ibmcloud tg redundant-gre-tunnel-add|targre GATEWAY_ID REDUNDANT_GRE_ID --name NAME --zone ZONE --local-gateway-ip LOCAL_GATEWAY_IP --local-tunnel-ip  LOCAL_TUNNEL_IP --remote-gateway-ip REMOTE_GATEWAY_IP --remote-tunnel-ip REMOTE_TUNNEL_IP [--remote-bgp-asn REMOTE_BGP_ASN] [--output json]
+```
+
+#### Command options
+{: #add-redundant-gre-options}
+
+`GATEWAY_ID`
+:   ID of the gateway where the new connection is bound.
+
+`REDUNDANT_GRE_ID`
+:   ID of the redundant GRE connection.
+
+`--name`
+:   Name of the new GRE tunnel.
+
+`--zone`
+:   Availability zone for the GRE tunnel. Example: `us-south-1`
+
+`--local-gateway-ip`
+:   Local gateway IP address for the GRE tunnel connection.
+
+`--local-tunnel-ip`
+:   Local tunnel IP address for the GRE tunnel connection.
+
+`--remote-gateway-ip`
+:   Remote gateway IP address for the GRE tunnel connection.
+
+`--remote-tunnel-ip`
+:   Remote tunnel IP address for the GRE tunnel connection.
+
+`--remote-bgp-asn`
+:   Optional: If the remote BGP ASN is not specified, one is generated.
+
+`--output json`
+:   Optional: Specify whether you want the output displayed in JSON format.
+
+`--help | -h`
+:   Optional: Get help on this command.
+
+#### Example
+{: #add-redundant-gre-tunnel-example}
+
+```sh
+ibmcloud tg redundant-gre-tunnel-add e47d6b9c-095f-4d31-aa47-5c89c2ded820 e4e37e31-8895-4594-be6b-61e8088b53c7 --name gre-tunnel3  --zone us-south-3 --local-gateway-ip 192.193.202.1 --local-tunnel-ip 192.193.237.2 -ibmcloud login -a https://test.cloud.ibm.com -r us-south --sso -remote-gateway-ip 10.186.203.5 --remote-tunnel-ip 192.193.237.1
+```
+{: pre}
+
+---
+
+### `ibmcloud tg redundant-gre-tunnel-remove`
+{: #redundant-gre-tunnel-remove}
+
+Remove a tunnel from a redundant GRE.
+
+```sh
+ibmcloud tg redundant-gre-tunnel-remove|trrgre GATEWAY_ID REDUNDANT_GRE_ID TUNNEL_ID [--force | -f] [--help | -h]
+```
+
+#### Command options
+{: #add-redundant-gre-options}
+
+`GATEWAY_ID`
+:   ID of the gateway where the new connection is bound.
+
+`REDUNDANT_GRE_ID`
+:   ID of the redundant GRE connection.
+
+`TUNNEL_ID`
+:   ID of the tunnel to be deleted.
+
+`--force | -f`
+:   Optional: Force the delete without confirmation.
+
+`--help | -h`
+:   Optional: Get help on this command.
+
+#### Example
+{: #remove-redundant-gre-tunnel-example}
+
+```sh
+ibmcloud tg redundant-gre-tunnel-remove e47d6b9c-095f-4d31-aa47-5c89c2ded820 e4e37e31-8895-4594-be6b-61e8088b53c7 b97a5cf5-7ee4-4073-b719-f6df36dea08f
+```
+{: pre}
 
 ---
 
