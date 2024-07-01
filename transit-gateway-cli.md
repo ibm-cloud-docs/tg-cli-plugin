@@ -464,7 +464,7 @@ ID of the gateway where the new connection is bound.
 :    Optional: ID of the classic network connection that is the underlay for the GRE tunnel. This option is for use only with the `gre_tunnel` network type.
 
 `--base-network-type`
-:   Network type of the base connection (`classic).
+:   Network type of the base connection (`classic`).
 
 `--network-type`
 :   Optional: Network type of the GRE connection. The default value is `gre_tunnel`.
