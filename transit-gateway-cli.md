@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-12"
+lastupdated: "2024-07-01"
 
 keywords: command line interface, commands, CLI
 
@@ -640,7 +640,7 @@ ibmcloud tg connection-rgre-create|crgrec JSON_FILE_PATH [--output json]
 {: pre}
 
 #### JSON file
-{: #connection-create-redundant-gre}
+{: #connection-create-redundant-gre-json}
 
 ```json
 {
@@ -835,7 +835,7 @@ ibmcloud tg redundant-gre-tunnel-remove|trrgre GATEWAY_ID REDUNDANT_GRE_ID TUNNE
 ```
 
 #### Command options
-{: #add-redundant-gre-options}
+{: #remove-redundant-gre-options}
 
 `GATEWAY_ID`
 :   ID of the gateway where the new connection is bound.
