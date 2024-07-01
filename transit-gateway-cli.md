@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-12"
+lastupdated: "2024-07-01"
 
 keywords: command line interface, commands, CLI
 
@@ -464,7 +464,7 @@ ID of the gateway where the new connection is bound.
 :    Optional: ID of the classic network connection that is the underlay for the GRE tunnel. This option is for use only with the `gre_tunnel` network type.
 
 `--base-network-type`
-:   Network type of the base connection (`classic).
+:   Network type of the base connection (`classic`).
 
 `--network-type`
 :   Optional: Network type of the GRE connection. The default value is `gre_tunnel`.
@@ -640,7 +640,7 @@ ibmcloud tg connection-rgre-create|crgrec JSON_FILE_PATH [--output json]
 {: pre}
 
 #### JSON file
-{: #connection-create-redundant-gre}
+{: #connection-create-redundant-gre-json}
 
 ```json
 {
@@ -835,7 +835,7 @@ ibmcloud tg redundant-gre-tunnel-remove|trrgre GATEWAY_ID REDUNDANT_GRE_ID TUNNE
 ```
 
 #### Command options
-{: #add-redundant-gre-options}
+{: #remove-redundant-gre-options}
 
 `GATEWAY_ID`
 :   ID of the gateway where the new connection is bound.
