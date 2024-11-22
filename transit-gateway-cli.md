@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-01"
+lastupdated: "2024-11-22"
 
 keywords: command line interface, commands, CLI
 
@@ -635,7 +635,7 @@ You  must use a JSON file as input.
 {: important}
 
 ```sh
-ibmcloud tg connection-rgre-create|crgrec JSON_FILE_PATH [--output json]
+ibmcloud tg connection-rgre-create|crgrec --file JSON_FILE_PATH [--output json]
 ```
 {: pre}
 
