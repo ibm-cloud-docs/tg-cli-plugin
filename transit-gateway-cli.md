@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-01"
+lastupdated: "2024-11-22"
 
 keywords: command line interface, commands, CLI
 
@@ -635,7 +635,7 @@ You  must use a JSON file as input.
 {: important}
 
 ```sh
-ibmcloud tg connection-rgre-create|crgrec JSON_FILE_PATH [--output json]
+ibmcloud tg connection-rgre-create|crgrec --file JSON_FILE_PATH [--output json]
 ```
 {: pre}
 
@@ -857,6 +857,43 @@ ibmcloud tg redundant-gre-tunnel-remove|trrgre GATEWAY_ID REDUNDANT_GRE_ID TUNNE
 
 ```sh
 ibmcloud tg redundant-gre-tunnel-remove e47d6b9c-095f-4d31-aa47-5c89c2ded820 e4e37e31-8895-4594-be6b-61e8088b53c7 b97a5cf5-7ee4-4073-b719-f6df36dea08f
+```
+{: pre}
+
+---
+
+### `ibmcloud tg tunnels`
+{: #redundant-gre-tunnels-list}
+
+List all tunnels under a given redundant GRE.
+
+```sh
+ibmcloud tg tunnels|ts GATEWAY_ID REDUNDANT_GRE_ID [--output json]
+```
+
+#### Command options
+{: #list-redundant-gre-tunnels}
+
+`GATEWAY_ID`
+:   ID of the gateway where the new connection is bound.
+
+`REDUNDANT_GRE_ID`
+:   ID of the redundant GRE connection. 
+
+`--output json`
+:   Optional: Specify whether you want the output displayed in JSON format.
+
+`--force | -f`
+:   Optional: Force the delete without confirmation.
+
+`--help | -h`
+:   Optional: Get help on this command.
+
+#### Example
+{: #list-redundant-gre-tunnels-example}
+
+```sh
+ibmcloud tg ts e47d6b9c-095f-4d31-aa47-5c89c2ded820 e4e37e31-8895-4594-be6b-61e8088b53c7
 ```
 {: pre}
 
