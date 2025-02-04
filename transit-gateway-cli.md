@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-22"
+  years: 2020, 2025
+lastupdated: "2025-02-04"
 
 keywords: command line interface, commands, CLI
 
@@ -655,7 +655,7 @@ ibmcloud tg connection-rgre-create|crgrec --file JSON_FILE_PATH [--output json]
           "local_gateway_ip": "192.168.100.1",
           "local_tunnel_ip": "192.168.129.2",
           "name": "gre1",
-          "remote_bgp_asn": "65010",
+          "remote_bgp_asn": 65010,
           "remote_gateway_ip": "10.242.63.12",
           "remote_tunnel_ip": "192.168.129.1",
           "zone": {
@@ -665,7 +665,7 @@ ibmcloud tg connection-rgre-create|crgrec --file JSON_FILE_PATH [--output json]
           "local_gateway_ip": "192.168.101.1",
           "local_tunnel_ip": "192.168.128.2",
           "name": "gre2",
-          "remote_bgp_asn": "65010",
+          "remote_bgp_asn": 65010,
           "remote_gateway_ip": "10.242.63.12",
           "remote_tunnel_ip": "192.168.128.1",
           "zone": {
